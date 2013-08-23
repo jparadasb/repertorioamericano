@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+	<head>
+		<meta charset="utf-8">
+	</head>
+	<body><ul>
+		@if($magazines)
+			
+			<li>{{ $magazines->topic_name}}
+			
+			</li>
+		</ul>	
+		@else
+		No hay Registros
+		@endif
+	</body>
+</html>
