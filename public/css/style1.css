@@ -1,0 +1,82 @@
+@charset "utf-8";
+#header{
+margin: 0 auto;
+width:1200px;
+height:230px;
+}
+}
+#gobaner{
+	position:relative;
+	margin:0 auto;
+}
+#repbaner{
+	position:relative;
+}
+#repbaner #titulo{
+	position:relative;
+	float:left;
+}
+#repbaner #enlaces{
+	position:relative;
+	float:right;
+	top:25px;
+}
+#cuerpo{
+	margin:0 auto;
+	width:1200px;
+	height:600px;
+	background:url('../resources/backnav.png') no-repeat right top;
+	}
+#topnav {
+	margin:0 auto;
+	width:1000px;
+	height:98px;	
+	font-weight:bold;	
+}
+#topnav .menu{
+  	padding-right: 5px;
+   	padding-bottom: 20px;
+   	
+}
+
+
+#topnav .menu a:hover,#topnav .menu a,#topnav .menu a:active,#topnav .menu a:after{
+   	color: #fff;
+   	background-color:#ffcc99;
+   	text-decoration: none;
+   	font-family:helvetica;
+   	/*padding-left:29px;
+   	padding-right:29px;*/
+   	padding-top:10px;
+   	padding-bottom:10px;
+   	display:inline-block;
+   	width:160px;
+
+   	text-align:center;
+
+}
+
+#topnav .menu a:hover{
+	font-family:helvetica;
+	background-color:#ff6600;
+}
+#topnav .menu #nav1{
+
+   	display: inline;
+   	color:#fff;
+   	font-family: helvetica;
+   	font-size: 12px;
+   	margin-left:-2px;
+   		
+	}
+#topnav .menu #nav2{
+   	display: inline;
+   	color:#fff;
+   	font-family: helvetica;
+   	font-size: 12px;
+   	margin-left:-2px;
+   		
+	}
+#topnav .menu #nav2 a, #topnav .menu #nav2 a:active, #topnav .menu #nav2 a:after{
+	background-color:#ff6600;
+}

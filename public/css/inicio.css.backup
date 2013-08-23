@@ -1,0 +1,37 @@
+@charset "utf-8";
+#contenido{
+	margin:0 auto;
+	width:1000px;
+	height:98px;
+}
+#contenido p{
+	padding-left:66px;
+}
+#numero_fecha{
+	background:url('../resources/backpub.png') repeat right;
+	width:259px;
+	margin-left:-93px;
+}
+#numero_fecha p{
+	font-family:helvetica;
+	color:#fff;
+	font-weight:bold;
+	padding-left:94px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:12px;
+}
+#seccion1{
+	float:left;
+	width:50%;
+}
+#seccion2{
+	float:left;
+	width:50%;
+}
+#seccion2 p{
+	background:none;
+}
+#seccion1 .portada{
+	border:1px solid #000;
+}

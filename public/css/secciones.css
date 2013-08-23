@@ -1,0 +1,160 @@
+@charset "utf-8";
+#lsecciones{
+	font-family: Insignia;
+	color:#ccd1d6;}
+#lsecciones a, #lsecciones a:after {
+	color:#ccd1d6;
+	text-decoration: none;
+}
+#lsecciones a:hover, #lsecciones a:active{
+	color:#002740;
+	text-decoration: none;
+}
+filosofia, editorial, ritos, recursos, boletin, literatura, musica, historieta, educacion, politica, geopolitica, filologia, anfictionia, entrevista, ciencia, critica, artes, economia, ser, arqueologia, historia, sociologia
+{
+
+	margin: 1px;
+	text-align: center;
+}
+filosofia{
+	font-size: 62px;
+	display:inline-block;
+	width:320px;
+	height:50px;
+}
+
+editorial{
+	font-size: 33px;
+	display:inline-block;
+	width:700px;
+	height:30px;
+}
+
+ritos{
+	font-size: 24px;
+	display:inline-block;
+	width:208px;
+	height:25px;
+}
+
+recursos{
+	font-size: 25px;
+	display:inline-block;
+	width:952px;
+	height:23px;
+	text-align: right;
+}
+musica{
+	font-size: 34px;
+	display:inline-block;
+	width:520px;
+	height:29px;
+}
+historieta{
+	font-size: 36px;
+	display:inline-block;
+	width:645px;
+	height:36px;
+	text-align: left;
+}
+educacion{
+	font-size: 23px;
+	display:inline-block;
+	width:335px;
+	height:22px;
+}
+politica{
+	font-size: 20px;
+	display:inline-block;
+	width:765px;
+	height:25px;
+	text-align: left;
+}
+geopolitica{
+	font-size: 24px;
+	display:inline-block;
+	width:865px;
+	height:25px;
+	text-align: left;
+}
+filologia{
+	font-size: 23px;
+	display:inline-block;
+	width:270px;
+	height:25px;
+}
+anfictionia{
+	font-size: 39px;
+	display:inline-block;
+	width:1050px;
+	height:40px;
+}
+entrevista{
+	font-size: 28px;
+	display:inline-block;
+	width:320px;
+	height:30px;
+}
+ciencia{
+	font-size: 20px;
+	display:inline-block;
+	width:610px;
+	height:25px;
+}
+critica{
+	font-size: 41px;
+	display:inline-block;
+	width:160px;
+	height:43px;
+}
+boletin{
+	font-size: 17px;
+	display:inline-block;
+	width:550px;
+	height:20px;
+	text-align: right;
+}
+literatura{
+	font-size: 23px;
+	display:inline-block;
+	width:350px;
+	height:25px;
+}
+artes{
+	font-size: 31px;
+	display:inline-block;
+	width:315px;
+	height:33px;
+}
+economia{
+	font-size: 31px;
+	display:inline-block;
+	width:470px;
+	height:33px;
+}
+ser{
+	font-size: 40px;
+	display:inline-block;
+	width:320px;
+	height:43px;
+}
+arqueologia{
+	font-size: 56px;
+	display:inline-block;
+	width:412px;
+	height:60px;
+}
+historia{
+	font-size: 25px;
+	display:inline-block;
+	width:580px;
+	height:27px;
+	text-align:right;
+}
+sociologia{
+	font-size: 24px;
+	display:inline-block;
+	width:490px;
+	height:27px;
+	text-align: right;
+}

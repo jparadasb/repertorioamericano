@@ -1,0 +1,74 @@
+@charset "utf-8";
+@font-face {
+font-family: Insignia; 
+src: url(fonts/Insignia.eot);
+src: url(fonts/Insignia.otf); 
+src: url(fonts/Insignia.svg); 
+src: url(fonts/Insignia.ttf); 
+src: url(fonts/Insignia.woff); 
+font-weight:100;
+}
+@font-face {
+font-family: nova; 
+src: url(fonts/nova.eot);
+src: url(fonts/nova.otf); 
+src: url(fonts/nova.svg); 
+src: url(fonts/nova.ttf); 
+src: url(fonts/nova.woff); 
+font-weight:normal;
+}
+#navb{
+   margin-left:-35px;
+
+}
+.menu #nav2{
+	display: inline;
+   	color:#fff;
+}
+.menu #nav1{
+	display: inline;
+   	color:#fff;
+}
+.menu #nav2 a, .menu #nav2 a:active, .menu #nav2 a:after{
+	background-color:#ff6600;
+}
+.menu a:hover, .menu a, .menu a:active, .menu a:after{
+   	color: #fff;
+   	background-color:#ffcc99;
+   	text-decoration: none;
+   	font-family:Insignia;
+   	padding-top:10px;
+   	padding-bottom:10px;
+   	display:inline-block;
+   	width:160px;
+   	text-align:center;
+      font-size:12px;
+      font-weight: bold;
+
+}
+#red{
+   background:url('../resources/red.png') repeat-x;
+   height: 4px;
+   padding-top: 10px;
+}
+#trans{
+   height: 16px;
+}
+
+#test{background: url('../resources/red.png') repeat;
+   height: 1000px;
+   vertical-align: top;}
+footer
+{
+   font-size: 10px;
+
+}
+footer .span21{
+
+      background: url('../resources/backfoot.png') repeat-x bottom;
+      font-family: nova;
+      font-weight: bold;
+      text-align: center;
+      word-spacing: 3px;
+
+}

@@ -1,0 +1,50 @@
+@charset "utf-8";
+#revista{
+	vertical-align: top;
+}
+#editorial{
+	text-align: justify;
+	font-family: nova;
+}
+#editorial h1{
+	/*color:rgba(2, 26, 49);*/color:#021a32;
+}
+.editorial{
+	background-color: rgba(2, 26, 49, 0.8);/*rgba(108,15,29,0.8);*/
+	color:#fff;
+	font-size: 15px;
+	letter-spacing: 1px;
+	font-weight: 100;
+}
+#contenido{
+	background: url('../resources/backgroud.png') no-repeat;
+}
+#contenido p{
+	padding:20px;
+}
+h1{
+	font-family: Insignia;
+	letter-spacing: 2px;
+}
+#portada{
+	border:2px solid;
+	border-color: #000;
+}
+#fecha{
+	width:290px;
+	height:25px;
+	background-color:#ff6600;
+	color:#fff;
+	font-family: Insignia;
+	text-align: center;
+}
+
+#video{
+	margin-left: 290px;
+	width: 245px;
+	height: 25px;
+	background-color: #ff6600;
+	color: #fff;
+	font-family: Insignia;
+	text-align: center;
+}
