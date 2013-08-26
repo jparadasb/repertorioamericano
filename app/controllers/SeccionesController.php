@@ -11,41 +11,48 @@ class SeccionesController extends \BaseController {
 		{
 			if(isset($temas))
 			{
+				$fsecciones=array('0'=>'cero');
 				foreach($temas as $tema)
 				{
-					//$tema='Anfictionia';
 					$modelo=$tema->model;
-					$temas_modelos = $modelo::all();
-
-					foreach($temas_modelos as $tema_modelo)
-					{
-						if($tema_modelo->magazine_id==$id)
+					$secciones=$modelo::all();
+					if(!count($secciones)>0)
 						{
-							if($tema_modelo->state==true)
-							{	
-								$tema_aprobado=$tema_modelo;
-							}
-							break;
+							$tema_f=$tema->real_name;
+							$fsecciones = array($fsecciones, $tema->model => $tema_f);
 						}
+					foreach ($secciones as $seccion) {
+
+						if($magazines->id==$seccion->magazine_id)
+						{
+							
+
+							if($seccion->state==true)
+							{
+								$tema_f='<a href="../pdf/view/'.$tema->url.'/'.$tema->id.' " class="nyroModal">'.$tema->real_name.'</a>';
+								$fsecciones = array($fsecciones, $tema->model => $tema_f);
+							}
+							else
+							{
+								$tema_f=$tema->real_name;
+								$fsecciones = array($fsecciones, $tema->model => $tema_f);
+							}
+						}
+						
+
 					}
-					if(isset($tema_aprobado))
-					{
-						$tema_formateado='<a href="../pdf/view/'.$tema_aprobado->url.'/'.$tema_aprobado->id.' " class="nyroModal">'.$tema_aprobado->real_name.'</a>';
-					}
-					else
-					{
-						$tema_formateado=$tema_aprobado->real_name;
-					}
-					$fsecciones = (object) array($tema_aprobado->model => $tema_formateado);
+
+
 				}
 
 			}
 
 
-			
+
 			return View::make('magazines.secciones')
 			-> with('magazines',$magazines)
-			-> with('fsecciones',$fsecciones);
+			-> with('fsecciones',$fsecciones)
+			-> with('temas', $temas);
 		}
 		
 		else

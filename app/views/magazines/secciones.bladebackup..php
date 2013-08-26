@@ -55,21 +55,7 @@ nav1
 <div class="row">
 	<div class="span24" id="lsecciones">
 		{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
-		<?php
-		foreach($temas as $tema)
-		{
-			$modelo=$tema->model;
-			foreach($fsecciones as $seccion)
-			{
-				if(isset($seccion->$modelo))
-				{
-					echo '<'.strtolower($modelo).'>'.$seccion->$modelo.'</'.strtolower($modelo).'>';
-				}
-
-			}
-		}
-		?>
-		<!-- <filosofia>
+		<filosofia>
 			<a href="../pdf/view/filosofia/{{$magazines->id}}" class="nyroModal" class="nyroModal">FILOSOFÍA</a>
 		</filosofia>
 		<editorial>
@@ -146,7 +132,7 @@ nav1
 		</historia>
 		<sociologia>
 			<a href="../pdf/view/sociologia/{{$magazines->id}}" class="nyroModal">SOCIOLOGÍA</a>
-		</sociologia> -->
+		</sociologia>
 		{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'100'))}}
 	</div>
 </div>
