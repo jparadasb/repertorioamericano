@@ -61,10 +61,15 @@ nav1
 			$modelo=$tema->model;
 			foreach($fsecciones as $seccion)
 			{
-				if(isset($seccion->$modelo))
-				{
-					echo '<'.strtolower($modelo).'>'.$seccion->$modelo.'</'.strtolower($modelo).'>';
-				}
+					$strmodelo=$modelo;
+					if(array_key_exists($modelo,$seccion))
+					{
+						$strseccion=$seccion->$modelo;
+					}
+					echo (array_key_exists($modelo,(array)$seccion));
+					// echo ('<'.$strmodelo.'>'.$strseccion.'</'.$strmodelo.'>');
+				
+
 
 			}
 		}
@@ -156,5 +161,5 @@ $(function() {
 });
 </script>
 
-{{var_dump($fsecciones)}}
+
 @stop
