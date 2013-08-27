@@ -88,8 +88,13 @@ dossier_id;
 	public function enlaces($id)
 	{
 		$magazines = Magazine::find($id);
+		$enlaces = Enlace::all();
 		if($magazines)
-		{return View::make('magazines.enlaces')-> with('magazines',$magazines);}
+		{
+			return View::make('magazines.enlaces')
+				-> with('magazines',$magazines)
+				-> with('enlaces',$enlaces);
+		}
 		else
 		{return 'Id no existe';};
 	}

@@ -11,6 +11,15 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 	 */
 		public function up()
 	{
+		Schema::create('enlaces', function($table)
+    		{
+    		
+			$table->increments('id');
+			$table->string('real_name');
+			$table->string('tag');
+			$table->string('url');
+
+    		});
 		Schema::create('temas', function($table)
     		{
     		
@@ -254,6 +263,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 
 	public function down()
 	{
+		Schema::drop('enlaces');
 		Schema::drop('filosofias');
 		Schema::drop('contributors');
 		Schema::drop('contributor_magazines');

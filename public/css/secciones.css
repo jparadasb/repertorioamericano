@@ -10,7 +10,7 @@
 	color:#002740;
 	text-decoration: none;
 }
-filosofia, editoriale, rito, recurso, boletin, literatura, musica, historieta, educacione, politica, geopolitica, filologia, anfictionia, entrevista, ciencia, critica, arte, economia, humano, arqueologia, historia, sociologia
+filosofia, editoriale, rito, recurso, boletin, literatura, musica, historieta, educacione, politica, geopolitica, filologia, anfictionia, entrevista, ciencia, critica, arte, economia, humano, arqueologia, america, sociologia
 {
 
 	margin: 1psx;
@@ -144,7 +144,7 @@ arqueologia{
 	width:412px;
 	height:60px;
 }
-historia{
+america{
 	font-size: 25px;
 	display:inline-block;
 	width:580px;

@@ -45,4 +45,9 @@ nav1
 @section('ide')
 nav2
 @stop
+@section('contenido')
+	@foreach($enlaces as $enlace)
+		
+	@endforeach
+@stop
 <!--Fin-->
