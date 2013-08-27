@@ -171,15 +171,9 @@ Toda revista es al menos un reto y una satisfacción. El nuevo repertorio americ
 	DB::table('temas')->insert(
 		array(
 						array(
-							'model' => 'Anfictionia',
-							'tabla_name' => 'anfictionias',
-							'real_name' => 'ANFICTIONÍA E INTEGRACIÓN',
-							'url' => 'anfictionia-e-integracion'
-							 ),
-						array(
 							'model' => 'Filosofia',
 							'tabla_name' => 'filosofias',
-							'real_name' => 'FILOLOGÍA Y LENGUAS',
+							'real_name' => 'FILOSOFÍA',
 							'url' => 'filosofia'
 							 ),
 						array(
@@ -235,6 +229,12 @@ Toda revista es al menos un reto y una satisfacción. El nuevo repertorio americ
 							'tabla_name' => 'filologias',
 							'real_name' => 'FILOLOGÍA Y LENGUAS',
 							'url' => 'filologia'
+							 ),
+						array(
+							'model' => 'Anfictionia',
+							'tabla_name' => 'anfictionias',
+							'real_name' => 'ANFICTIONÍA E INTEGRACIÓN',
+							'url' => 'anfictionia-e-integracion'
 							 ),
 						array(
 							'model' => 'Entrevista',

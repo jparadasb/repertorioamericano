@@ -10,10 +10,10 @@
 	color:#002740;
 	text-decoration: none;
 }
-filosofia, editorial, ritos, recursos, boletin, literatura, musica, historieta, educacion, politica, geopolitica, filologia, anfictionia, entrevista, ciencia, critica, artes, economia, ser, arqueologia, historia, sociologia
+filosofia, editoriale, rito, recurso, boletin, literatura, musica, historieta, educacione, politica, geopolitica, filologia, anfictionia, entrevista, ciencia, critica, arte, economia, humano, arqueologia, historia, sociologia
 {
 
-	margin: 1px;
+	margin: 1psx;
 	text-align: center;
 }
 filosofia{
@@ -23,21 +23,21 @@ filosofia{
 	height:50px;
 }
 
-editorial{
+editoriale{
 	font-size: 33px;
 	display:inline-block;
 	width:700px;
 	height:30px;
 }
 
-ritos{
+rito{
 	font-size: 24px;
 	display:inline-block;
 	width:208px;
 	height:25px;
 }
 
-recursos{
+recurso{
 	font-size: 25px;
 	display:inline-block;
 	width:952px;
@@ -57,7 +57,7 @@ historieta{
 	height:36px;
 	text-align: left;
 }
-educacion{
+educacione{
 	font-size: 23px;
 	display:inline-block;
 	width:335px;
@@ -107,7 +107,7 @@ critica{
 	width:160px;
 	height:43px;
 }
-boletin{
+boletine{
 	font-size: 17px;
 	display:inline-block;
 	width:550px;
@@ -120,7 +120,7 @@ literatura{
 	width:350px;
 	height:25px;
 }
-artes{
+arte{
 	font-size: 31px;
 	display:inline-block;
 	width:315px;
@@ -132,7 +132,7 @@ economia{
 	width:470px;
 	height:33px;
 }
-ser{
+humano{
 	font-size: 40px;
 	display:inline-block;
 	width:320px;

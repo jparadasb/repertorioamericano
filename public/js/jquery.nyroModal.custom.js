@@ -104,7 +104,7 @@ jQuery(function($, undefined) {
 			},
 
 			store: {},	// Storage object for filters.
-			errorMsg: 'An error occured',	// Error message
+			errorMsg: 'Ha ocurrido un error',	// Error message
 			elts: {	// HTML elements for the modal
 				all: undefined,
 				bg: undefined,
@@ -117,8 +117,8 @@ jQuery(function($, undefined) {
 				initH: undefined,	// Initial height
 				w: undefined,		// width
 				h: undefined,		// height
-				minW: undefined,	// minimum Width
-				minH: undefined,	// minimum height
+				minW: 500,	// minimum Width
+				minH: 700,	// minimum height
 				wMargin: undefined,	// Horizontal margin
 				hMargin: undefined	// Vertical margin
 			},
@@ -568,14 +568,14 @@ jQuery(function($, undefined) {
 					});
 					this.elts.cont.after(elts);
 				}
-				this.elts.cont.css('overflow', 'auto');
+				this.elts.cont.css('overflow', 'hidden');
 				this._callFilters('afterReposition');
 			},
 
 			// Unreposition elements with a class nmReposition
 			// Exaclty the reverse of the _reposition function
 			_unreposition: function() {
-				this.elts.cont.css('overflow', '');
+				this.elts.cont.css('overflow', 'hidden');
 				var elts = this.elts.all.find('.nmReposition');
 				if (elts.length)
 					this.elts.cont.append(elts.removeAttr('style'));
