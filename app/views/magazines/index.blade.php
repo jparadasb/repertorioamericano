@@ -67,10 +67,13 @@ nav1
 					<header>
 					{{HTML::image('resources/transparencia1000x50.png')}}
 					{{HTML::image('resources/transparencia.png')}}
+					
 					{{HTML::image($magazines->dir_portada,'',array('width'=>'150', 'id' => 'portada'))}}
+					<div id="descarga">
 					<a href="{{$magazines->dir_pdf}}">
 					{{HTML::image('resources/dpdf.png','',array('width'=>'60'))}}
 					</a>
+				</div>
 					<div id="fecha">
 						número {{str_pad((int) ($magazines->num_edi),2,"0",STR_PAD_LEFT);}} - 
 				{{$fp}}
