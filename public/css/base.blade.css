@@ -72,3 +72,18 @@ footer .span21{
       word-spacing: 3px;
 
 }
+@-moz-document url-prefix()
+{
+
+footer
+{
+   font-size: 8.2px;
+
+}
+footer .span21{
+
+      text-align: left;
+
+}
+
+}

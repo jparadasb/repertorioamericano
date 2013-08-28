@@ -1,0 +1,48 @@
+/*enlaces.css*/
+cultura,bnv,mre,
+bcv,mppef,unasur,
+minci,alba,petrocaribe,
+mcti,mercosur
+{
+	display: inline-block;
+	width: 300px;
+	height: 60px;
+	position: relative;
+	margin: 5px;
+	font-family: times;
+	font-size: 14px;
+
+
+}
+#contenido{
+	background:url(../resources/backgroud-enlaces.png) 0px -42px;
+
+}
+mercosur,petrocaribe,alba,unasur,bcv,bnv{
+	float: right;
+	margin-bottom: 1px;
+	text-align: right;
+	background: url(../resources/line.png) no-repeat;
+	background-position: 105px -7px;
+	padding-right: 45px;
+}
+cultura,mre,mppef,minci,mcti{
+	background: url(../resources/line.png) no-repeat;
+	background-position: -205px -7px;
+	padding-left: 45px;
+}
+petrocaribe,mercosur,unasur{
+	height:55px;
+}
+#left{
+	height:415px;
+	background: rgba(2,23,50,0.8);
+	border-right: solid rgba(255,255,255,0.5) 15px;
+	margin-right: -48px;
+}
+#right{
+	height:415px;
+	background: rgba(2,23,50,0.8);
+	border-left: solid rgba(255,255,255,0.5) 15px;
+	margin-left: -37px;
+	}
