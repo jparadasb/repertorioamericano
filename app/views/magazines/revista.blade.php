@@ -46,3 +46,22 @@ nav1
 nav1
 @stop
 <!--Fin-->
+@section('head')
+{{HTML::style('css/revistas.css');}}
+@stop
+@section('contenido')
+{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
+
+<div class="container backblue">
+	<div class="span3"></div>
+	<div class="span18">
+		@foreach($portadas as $portada)
+		<a href="../../{{$portada->id}}">
+		<img class="portada" src="../../{{$portada->dir_portada}}" width="120">
+		</a>
+		@endforeach
+	</div>
+	<div class="span3"></div>
+</div>
+{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
+@stop

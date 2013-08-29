@@ -72,8 +72,9 @@ dossier_id;
 	public function revista($id)
 	{
 		$magazines = Magazine::find($id);
+		$portadas= Magazine::all();
 		if($magazines)
-		{return View::make('magazines.revista')-> with('magazines',$magazines);}
+		{return View::make('magazines.revista')-> with('magazines',$magazines) -> with('portadas',$portadas);}
 		else
 		{return 'Id no existe';};
 	}
