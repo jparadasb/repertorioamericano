@@ -18,6 +18,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('real_name');
 			$table->string('tag');
 			$table->string('url');
+			$table->timestamps();
 
     		});
 		Schema::create('temas', function($table)
@@ -28,6 +29,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('tabla_name');
 			$table->string('real_name');
 			$table->string('url');
+			$table->timestamps();
 
     		});
 		Schema::create('magazines', function($table)
@@ -48,6 +50,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
     		{
 	    		$table->increments('id');
 			$table->string('real_name');
+			$table->timestamps();
 			
 		});
     	Schema::create('filosofias', function($table)
@@ -57,6 +60,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		
 		/*1*/
@@ -67,6 +71,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('arqueologias', function($table)
     		{
@@ -75,6 +80,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('artes', function($table)
     		{
@@ -83,6 +89,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('boletines', function($table)
     		{
@@ -91,6 +98,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('ciencias', function($table)
     		{
@@ -99,6 +107,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('criticas', function($table)
     		{
@@ -107,6 +116,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('economias', function($table)
     		{
@@ -115,6 +125,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('editoriales', function($table)
     		{
@@ -123,6 +134,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->text('txt_editorial');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('educaciones', function($table)
     		{
@@ -131,6 +143,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('entrevistas', function($table)
     		{
@@ -139,6 +152,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('filologias', function($table)
     		{
@@ -147,6 +161,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('geopoliticas', function($table)
     		{
@@ -155,6 +170,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('americas', function($table)
     		{
@@ -163,6 +179,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('historietas', function($table)
     		{
@@ -171,6 +188,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('literaturas', function($table)
     		{
@@ -179,6 +197,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('musicas', function($table)
     		{
@@ -187,6 +206,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('participaciones', function($table)
     		{
@@ -195,6 +215,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('recursos', function($table)
     		{
@@ -203,6 +224,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('ritos', function($table)
     		{
@@ -211,6 +233,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('humanos', function($table)
     		{
@@ -219,6 +242,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		});
 		Schema::create('sociologias', function($table)
     		{
@@ -227,6 +251,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_pdf');
 			$table->integer('magazine_id');
 			$table->integer('click_num');
+			$table->timestamps();
 		}); 
 		Schema::create('other_pubs', function($table)
     		{
@@ -241,6 +266,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->increments('id');
 			$table->integer('magazine_id');
 			$table->integer('contributor_id');
+			$table->timestamps();
 		}); 
 		Schema::create('contributors', function($table)
     		{
@@ -249,6 +275,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_photo');
 			$table->text('txt_col');
 			$table->integer('view_num');
+			$table->timestamps();
 		});
 		Schema::create('videos', function($table)
     		{

@@ -109,15 +109,13 @@ class SeccionesViewsController extends \BaseController {
 		{
 			foreach($secciones as $seccion)
 			{
-				if(($seccion->magazine_id)==$id)
+				$m_id=$seccion->magazine_id;
+				if($m_id==$id)
 				{
-				break;
+					return View::make('magazines.pdfview') -> with('seccion',$seccion);
 				}
 			}
-			if(isset($seccion))
-			{
-				return View::make('magazines.pdfview') -> with('seccion',$seccion);
-			}
+
 		}
 		elseif (!isset($secciones)) 
 		{

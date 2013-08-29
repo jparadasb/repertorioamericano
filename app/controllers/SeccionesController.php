@@ -29,7 +29,7 @@ class SeccionesController extends \BaseController {
 
 							if($seccion->state==true)
 							{
-								$tema_f='<a href="../pdf/view/'.$tema->url.'/'.$tema->id.' " class="nyroModal">'.$tema->real_name.'</a>';
+								$tema_f='<a href="../pdf/view/'.$tema->url.'/'.$seccion->magazine_id.' " class="nyroModal">'.$tema->real_name.'</a>';
 								$fsecciones[$tema->model] = $tema_f;
 							}
 							else
