@@ -45,7 +45,7 @@
 							<a href=@yield('colaboradoreslink')>COLABORADORES</a>
 						</li>
 						<li id=@yield('idr')>
-							<a href=@yield('revistalink')>REVISTA</a>
+							<a href=@yield('revistalink')>REVISTAS</a>
 						</li>
 						<li id=@yield('ido') class="otras">
 							<a href=@yield('otraslink')>OTRAS PUBLICACIONES</a>
