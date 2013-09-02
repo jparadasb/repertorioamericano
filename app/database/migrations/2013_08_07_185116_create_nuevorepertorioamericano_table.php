@@ -253,12 +253,13 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->integer('click_num');
 			$table->timestamps();
 		}); 
-		Schema::create('other_pubs', function($table)
+		Schema::create('otras', function($table)
     		{
 			$table->increments('id');
 			$table->text('title_pub');
 			$table->string('dir_pdf');
 			$table->integer('click_num');
+			$table->string('dir_portada');
 			$table->timestamps();
 		}); 
 		Schema::create('contributor_magazines', function($table)
@@ -294,7 +295,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 		Schema::drop('filosofias');
 		Schema::drop('contributors');
 		Schema::drop('contributor_magazines');
-		Schema::drop('other_pubs');
+		Schema::drop('otras');
 		Schema::drop('magazines');
 		Schema::drop('dossiers');
 		Schema::drop('anfictionias');

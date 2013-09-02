@@ -13,7 +13,7 @@
 Route::get('/', 'MagazinesController@Index');
 Route::get('/{id?}', 'MagazinesController@Seleccionado');
 Route::get('secciones/{id?}', 'SeccionesController@Index');
-Route::get('colaboradores/{id?}', 'MagazinesController@Colaboradores');
+Route::get('colaboradores/{id?}', 'ColaboradoresController@Index');
 Route::get('revista/{id?}', 'MagazinesController@Revista');
 Route::get('otras-publicaciones/{id?}', 'MagazinesController@OtrasPublicaciones');
 Route::get('enlaces/{id?}', 'MagazinesController@Enlaces');

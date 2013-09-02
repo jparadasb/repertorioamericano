@@ -1,0 +1,16 @@
+/*revistas.css*/
+#contenido{
+	background: url(../resources/backgroud-enlaces.png) 0px -42px;
+		text-align: center;
+}
+.backblue{
+/*background: rgba(2,23,50,0.8) 50% 100% no-repeat;*/
+background: url(../resources/backrevistas.png) repeat-x 0px -122px;
+}
+.portada{
+	border: solid #000 1px;
+	margin:40px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+
+}

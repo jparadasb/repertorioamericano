@@ -10,6 +10,15 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
+			DB::table('otras') ->
+			insert(
+					array(
+							'title_pub' => 'Repertorio Americano - tomo primero',
+							'dir_pdf' => 'resources/pdf/#',
+							'dir_portada' => '/resources/photo/pub1.png'
+						)
+				);
+
 		   DB::table('magazines')->
 insert(
                        

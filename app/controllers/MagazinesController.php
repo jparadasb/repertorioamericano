@@ -61,14 +61,6 @@ dossier_id;
 			return App::abort(404, 'Page not found');
 		};
 	}
-	public function colaboradores($id)
-	{
-		$magazines = Magazine::find($id);
-		if($magazines)
-		{return View::make('magazines.colaboradores')-> with('magazines',$magazines);}
-		else
-		{return 'Id no existe';};
-	}
 	public function revista($id)
 	{
 		$magazines = Magazine::find($id);
@@ -81,8 +73,9 @@ dossier_id;
 	public function otrasPublicaciones($id)
 	{
 		$magazines = Magazine::find($id);
+		$otras_pub = Otra::all();
 		if($magazines)
-		{return View::make('magazines.otras')-> with('magazines',$magazines);}
+		{return View::make('magazines.otras')-> with('magazines',$magazines) -> with('otras_pub',$otras_pub);}
 		else
 		{return 'Id no existe';};
 	}

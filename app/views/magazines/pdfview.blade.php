@@ -1,4 +1,4 @@
-<embed src="http://repertorioamericano.lc/{{$seccion->dir_pdf}}" width="700" height="600" type="application/pdf"> <?php
+<embed src="/{{$seccion->dir_pdf}}" width="600" height="700" type="application/pdf"> <?php
 
 					
 					$num=$seccion->click_num;
