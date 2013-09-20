@@ -7,10 +7,10 @@ class ColaboradoresController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($id)
 	{
 		$magazines = Magazine::find($id);
-		$colaboradores DB::select('select * from contributors where magazine_id='.$id, array(1));
+		$colaboradores = DB::select('select * from contributor_magazines where magazine_id='.$id, array(1));
 
 
 		if($magazines)
