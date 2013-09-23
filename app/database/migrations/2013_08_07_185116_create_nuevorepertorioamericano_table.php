@@ -262,7 +262,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 			$table->string('dir_portada');
 			$table->timestamps();
 		}); 
-		Schema::create('contributor_magazines', function($table)
+		Schema::create('contributor_magazine', function($table)
     		{
 			$table->increments('id');
 			$table->integer('magazine_id');
@@ -294,7 +294,7 @@ class CreateNuevorepertorioamericanoTable extends Migration {
 		Schema::drop('enlaces');
 		Schema::drop('filosofias');
 		Schema::drop('contributors');
-		Schema::drop('contributor_magazines');
+		Schema::drop('contributor_magazine');
 		Schema::drop('otras');
 		Schema::drop('magazines');
 		Schema::drop('dossiers');

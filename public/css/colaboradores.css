@@ -1,0 +1,10 @@
+/*colaboradores.css*/
+.backblue{
+/*background: rgba(2,23,50,0.8) 50% 100% no-repeat;*/
+background: url(../resources/backrevistas.png) repeat-x 0px -80px;
+}
+.col_m {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FF8113;
+}

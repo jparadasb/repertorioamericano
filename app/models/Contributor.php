@@ -1,9 +1,9 @@
 <?php
-class Dossier extends Eloquent
+class Contributor extends Eloquent
 {
 	public function magazines()
 	{
-	return $this->belongsToMany('Magazine');
+		return $this->belongsToMany('Magazine');
 	}
 }
 ?>

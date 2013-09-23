@@ -10,11 +10,15 @@ class ColaboradoresController extends \BaseController {
 	public function index($id)
 	{
 		$magazines = Magazine::find($id);
-		$colaboradores = DB::select('select * from contributor_magazines where magazine_id='.$id, array(1));
+		$colaboradores=Magazine::find($id)->contributors;
+
+
+	
+
 
 
 		if($magazines)
-		{return View::make('magazines.colaboradores')-> with('magazines',$magazines);}
+		{return View::make('magazines.colaboradores')-> with('magazines',$magazines)-> with('colaboradores',$colaboradores);}
 		else
 		{return 'Id no existe';};
 	}
