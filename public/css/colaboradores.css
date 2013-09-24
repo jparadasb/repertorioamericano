@@ -63,9 +63,9 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	color:#fff;
 	text-align: justify;
 	width:376px;
-	height:239px;
+	max-height:239px;
 	padding: 30px;
-	font-size: 15px;
+	font-size: 12px;
 	font-family: nova;
 
 	top:40px;
