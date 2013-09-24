@@ -55,8 +55,18 @@ nav1
 	<div class="span18">
 {{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 @foreach ($colaboradores as $colaborador)
+<div>
 {{HTML::image($colaborador->dir_photo,$colaborador->real_name,array('class' => 'col_m'))}}
+</div>
 @endforeach
+<div id="colaborador" class="inactivo">
+	<div id="nombre" class="nombre">
+		{{$colaborador->real_name}}
+	</div>
+	<div id="cerrar" class="cerrar">
+		
+	</div>
+</div>
 {{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 	</div>
 	<div class="span3"></div>
