@@ -91,12 +91,13 @@ nav1
 	</div>
 	<div class="span3"></div>
 </div>
-@param Estas funciones de Jquery se generan dependiendo de la cantidad
-@param de colaboradores que por revista exista
-@param la clase sera colaborador[id] que corresponde a la id de la db
+
 <script>
 $(".cerrar").click(function () {
 <?php
+// Estas funciones de Jquery se generan dependiendo de la cantidad
+// de colaboradores que por revista exista
+// la clase sera colaborador[id] que corresponde a la id de la db
 	foreach ($colaboradores as $colaborador) {  
 		$id="colaborador".$colaborador->id;
 		echo '$("#'.$id.'").removeClass("activo");';
