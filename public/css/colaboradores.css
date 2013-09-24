@@ -10,7 +10,9 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #ff6600;
+	margin:-2px;
 }
+
 .activo{
 	z-index: 10;
 	position: absolute;
@@ -29,6 +31,9 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	height:16px;
 	background-color: #ff6600;
 }
+.activo .cerrar img{
+	margin-top: -6px;
+}
 .activo .nombre {
 	display: inline-block;
 	float:left;
@@ -40,9 +45,32 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	text-align: center;
 	padding-top: 5px;
 	font-size: 16px;
+}
+.activo .foto {
+	position:absolute;
+	z-index: 21;
+
+	top:69px;
+	left: 103px;
 
 }
+.activo .foto img{
+	width:235px;
+}
+.activo .info {
+	position:absolute;
+	background-color: rgba(2,23,50,1);
+	color:#fff;
+	text-align: justify;
+	width:376px;
+	height:239px;
+	padding: 30px;
+	font-size: 15px;
+	font-family: nova;
+
+	top:40px;
+	left:331px;
+}
 .inactivo{
-	position: absolute;
 	display:none;
 }

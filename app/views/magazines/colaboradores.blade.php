@@ -47,7 +47,8 @@ nav1
 @stop
 <!--Fin-->
 @section('head')
-{{HTML::style('css/colaboradores.css');}}
+{{HTML::style('css/colaboradores.css')}}
+{{HTML::script('js/jquery-2.0.3.js')}}
 @stop
 @section('contenido')
 <div class="container backblue">
@@ -55,20 +56,73 @@ nav1
 	<div class="span18">
 {{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 @foreach ($colaboradores as $colaborador)
-<div>
-{{HTML::image($colaborador->dir_photo,$colaborador->real_name,array('class' => 'col_m'))}}
-</div>
-@endforeach
-<div id="colaborador" class="inactivo">
+	{{HTML::image($colaborador->dir_photo,$colaborador->real_name,array('class' => 'col_m','id'=>'c'.$colaborador->id))}}
+	<div id="colaborador{{$colaborador->id}}" class="inactivo">
 	<div id="nombre" class="nombre">
 		{{$colaborador->real_name}}
 	</div>
 	<div id="cerrar" class="cerrar">
-		
+		{{HTML::image('img/close.gif','close',array('width' => '16'));}}
+	</div>
+	<div id="foto" class="foto">
+		{{HTML::image($colaborador->dir_photo,$colaborador->real_name)}}
+	</div>
+	<div id="info" class="info">
+		{{$colaborador->txt_col}}
+	</div>
+</div>
+@endforeach
+
+<div id="colaborador1" class="inactivo">
+	<div id="nombre" class="nombre">
+		{{$colaborador->real_name}}
+	</div>
+	<div id="cerrar" class="cerrar">
+		{{HTML::image('img/close.gif','close',array('width' => '16'));}}
+	</div>
+	<div id="foto" class="foto">
+		{{HTML::image($colaborador->dir_photo,$colaborador->real_name)}}
+	</div>
+	<div id="info" class="info">
+		{{$colaborador->txt_col}}
 	</div>
 </div>
 {{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 	</div>
 	<div class="span3"></div>
 </div>
+@param Estas funciones de Jquery se generan dependiendo de la cantidad
+@param de colaboradores que por revista exista
+@param la clase sera colaborador[id] que corresponde a la id de la db
+<script>
+$(".cerrar").click(function () {
+<?php
+	foreach ($colaboradores as $colaborador) {  
+		$id="colaborador".$colaborador->id;
+		echo '$("#'.$id.'").removeClass("activo");';
+		echo "\n";
+		echo '$("#'.$id.'").addClass("inactivo");';
+		echo "\n";
+	}
+?>
+} );
+<?php
+echo "\n";
+echo "\n";
+	foreach ($colaboradores as $colaborador) 
+			{  
+				$id="colaborador".$colaborador->id;
+				echo '$("#c'.$colaborador->id.'").click(function () {' ;
+					echo "\n";
+					echo '$("#'.$id.'").removeClass("inactivo");';
+					echo "\n";
+					echo '$("#'.$id.'").addClass("activo");';
+					echo "\n";
+				echo '} );';
+				echo "\n";
+				echo "\n";
+
+			} 
+?>
+</script>
 @stop
