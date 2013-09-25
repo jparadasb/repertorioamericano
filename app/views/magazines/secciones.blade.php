@@ -52,7 +52,6 @@ nav1
 {{HTML::style('css/secciones.css')}}
 @stop
 @section('contenido')
-
 <div class="row">
 	<div class="span24" id="lsecciones">
 		{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}

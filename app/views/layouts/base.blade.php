@@ -10,6 +10,7 @@
 @show
 </head>
 <body>
+<div class="oscuroI" id="oscuro"></div>
 	<header class="container">
 		<div class="row">
 			<div class="span3"></div>

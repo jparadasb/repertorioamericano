@@ -51,6 +51,7 @@ nav1
 {{HTML::script('js/jquery-2.0.3.js')}}
 @stop
 @section('contenido')
+
 <div class="container backblue">
 	<div class="span3"></div>
 	<div class="span18">
@@ -94,6 +95,30 @@ nav1
 
 <script>
 $(".cerrar").click(function () {
+	$(".col_m").css("visibility","visible");
+	$(".col_mi").addClass("col_m");
+	$(".col_m").removeClass("col_mi");
+	$("#oscuro").removeClass("oscuro");
+	$("#oscuro").addClass("oscuroI");
+<?php
+// Estas funciones de Jquery se generan dependiendo de la cantidad
+// de colaboradores que por revista exista
+// la clase sera colaborador[id] que corresponde a la id de la db
+	foreach ($colaboradores as $colaborador) {  
+		$id="colaborador".$colaborador->id;
+		echo '$("#'.$id.'").removeClass("activo");';
+		echo "\n";
+		echo '$("#'.$id.'").addClass("inactivo");';
+		echo "\n";
+	}
+?>
+} );
+$("#oscuro").click(function () {
+	$(".col_m").css("visibility","visible");
+	$(".col_mi").addClass("col_m");
+	$(".col_m").removeClass("col_mi");
+	$("#oscuro").removeClass("oscuro");
+	$("#oscuro").addClass("oscuroI");
 <?php
 // Estas funciones de Jquery se generan dependiendo de la cantidad
 // de colaboradores que por revista exista
@@ -119,11 +144,20 @@ echo "\n";
 					echo "\n";
 					echo '$("#'.$id.'").addClass("activo");';
 					echo "\n";
+					echo '$(".col_m").addClass("col_mi");';
+					echo "\n";
+					echo '$(".col_mi").removeClass("col_m");';
+					echo "\n";
+					echo '$("#oscuro").removeClass("oscuroI");';
+					echo "\n";
+					echo '$("#oscuro").addClass("oscuro");';
+					echo "\n";
 				echo '} );';
 				echo "\n";
 				echo "\n";
 
 			} 
 ?>
+
 </script>
 @stop

@@ -17,7 +17,9 @@ src: url(fonts/nova.ttf);
 src: url(fonts/nova.woff); 
 font-weight:normal;
 }
-
+.oscuroI{
+   display:none;
+}
 #navb{
    margin-left:-35px;
 

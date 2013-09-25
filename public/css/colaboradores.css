@@ -1,4 +1,14 @@
 /*colaboradores.css*/
+@-webkit-keyframes activo{
+	100%{
+			opacity:1;
+	}
+}
+@-webkit-keyframes inactivo{
+	100%{
+			opacity:0;
+	}
+}
 #contenido{
 	background: url(../resources/backgroud-enlaces.png) 0px -42px;
 }
@@ -12,17 +22,38 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	border-color: #ff6600;
 	margin:-2px;
 }
+.col_mi {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ff6600;
+	margin:-2px;
+	opacity:1;
+	-webkit-animation: inactivo 0.5s;
+	-webkit-animation-fill-mode:forwards;
+}
+
+.oscuro{
+	position: absolute;
+	z-index: 9;
+	background-color: #000;
+	width:100%;
+	height:100%;
+	opacity: 0.2;
+}
 
 .activo{
 	z-index: 10;
 	position: absolute;
 	top:291px;
-	width: 764px;
-	height:387px;
+	min-width: 764px;
+	min-height:387px;
 	border-style: solid;
 	border-color: rgba(2,23,50,1);
 	border-width: 4px;
 	background-color: #fff;
+	opacity:0;
+	-webkit-animation: activo 1s;
+	-webkit-animation-fill-mode:forwards;
 }
 .activo .cerrar {
 	display: inline-block;
@@ -37,7 +68,8 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 .activo .nombre {
 	display: inline-block;
 	float:left;
-	width:256px;
+	padding: 0 19px 0 19px;
+	min-width:256px;
 	height:32px;
 	background-color: #ff6600;
 	color:#fff;
@@ -47,25 +79,30 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	font-size: 16px;
 }
 .activo .foto {
-	position:absolute;
+	clear:both;
+	float:left;
 	z-index: 21;
-
+	max-width:320px;
+	min-width:320px;
+	height:262px;
 	top:69px;
 	left: 103px;
 
 }
 .activo .foto img{
+	margin: 31px 0 0 93px;
 	width:235px;
 }
 .activo .info {
-	position:absolute;
-	background-color: rgba(2,23,50,1);
+	float:right;
+	background-color: rgba(2,23,50,0.95);
+	width:1px;
 	color:#fff;
 	text-align: justify;
-	width:376px;
-	max-height:239px;
+	min-width:376px;
+	min-height:239px;
 	padding: 30px;
-	font-size: 12px;
+	font-size: 15px;
 	font-family: nova;
 
 	top:40px;
