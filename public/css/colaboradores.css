@@ -1,14 +1,88 @@
 /*colaboradores.css*/
-@-webkit-keyframes activo{
-	100%{
-			opacity:1;
-	}
+@keyframes "activo" {
+ 100% {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   	filter: alpha(opacity=100);
+   	opacity: 1;
+ }
+
 }
-@-webkit-keyframes inactivo{
-	100%{
-			opacity:0;
-	}
+
+@-moz-keyframes activo {
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
 }
+
+@-webkit-keyframes "activo" {
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
+}
+
+@-ms-keyframes "activo" {
+ 100% {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
+}
+
+@-o-keyframes "activo" {
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+ }
+
+}
+
+@keyframes "inactivo" {
+ 100% {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   	filter: alpha(opacity=0);
+   	opacity: 0;
+ }
+
+}
+
+@-moz-keyframes inactivo {
+ 100% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+
+}
+
+@-webkit-keyframes "inactivo" {
+ 100% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+
+}
+
+@-ms-keyframes "inactivo" {
+ 100% {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+
+}
+
+@-o-keyframes "inactivo" {
+ 100% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+ }
+
+}
+
 #contenido{
 	background: url(../resources/backgroud-enlaces.png) 0px -42px;
 }
@@ -27,9 +101,19 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	border-width: 1px;
 	border-color: #ff6600;
 	margin:-2px;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity:1;
 	-webkit-animation: inactivo 0.5s;
+	-moz-animation: inactivo 0.5s;
+	-ms-animation: inactivo 0.5s;
+	-o-animation: inactivo 0.5s;
+	animation: inactivo 0.5s;
 	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-ms-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
 }
 
 .oscuro{
@@ -51,9 +135,19 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	border-color: rgba(2,23,50,1);
 	border-width: 4px;
 	background-color: #fff;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity:0;
 	-webkit-animation: activo 1s;
+	-moz-animation: activo 1s;
+	-ms-animation: activo 1s;
+	-o-animation: activo 1s;
+	animation: activo 1s;
 	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-ms-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
 }
 .activo .cerrar {
 	display: inline-block;

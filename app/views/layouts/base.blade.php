@@ -6,6 +6,8 @@
 	{{HTML::style('css/default.css');}}
 {{HTML::style('css/bootstrap.min.css');}}
 {{HTML::style('css/base.blade.css');}}
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 @section('head')
 @show
 </head>
