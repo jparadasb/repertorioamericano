@@ -156,6 +156,7 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	width:16px;
 	height:16px;
 	background-color: #ff6600;
+	cursor:pointer;
 }
 .activo .cerrar img{
 	margin-top: -6px;
