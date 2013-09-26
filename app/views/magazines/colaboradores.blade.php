@@ -74,20 +74,6 @@ nav1
 </div>
 @endforeach
 
-<div id="colaborador1" class="inactivo">
-	<div id="nombre" class="nombre">
-		{{$colaborador->real_name}}
-	</div>
-	<div id="cerrar" class="cerrar">
-		{{HTML::image('img/close.gif','close',array('width' => '16'));}}
-	</div>
-	<div id="foto" class="foto">
-		{{HTML::image($colaborador->dir_photo,$colaborador->real_name)}}
-	</div>
-	<div id="info" class="info">
-		{{$colaborador->txt_col}}
-	</div>
-</div>
 {{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 	</div>
 	<div class="span3"></div>
