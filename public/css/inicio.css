@@ -59,5 +59,7 @@ h1{
 }
 #descarga{
 	display: inline;
+}
+#descarga a img{
 	vertical-align: bottom;
 }
