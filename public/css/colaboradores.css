@@ -95,6 +95,7 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 	border-width: 1px;
 	border-color: #ff6600;
 	margin:-2px;
+	cursor:pointer;
 }
 .col_mi {
 	border-style: solid;
