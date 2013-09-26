@@ -12,12 +12,12 @@
 */
 Route::get('/', 'MagazinesController@Index');
 Route::get('/{id?}', 'MagazinesController@Seleccionado');
-Route::get('secciones/{id?}', 'SeccionesController@Index');
-Route::get('colaboradores/{id?}', 'ColaboradoresController@Index');
-Route::get('revista/{id?}', 'MagazinesController@Revista');
-Route::get('otras-publicaciones/{id?}', 'MagazinesController@OtrasPublicaciones');
-Route::get('enlaces/{id?}', 'MagazinesController@Enlaces');
-Route::get('pdf/view/{sec?}/{id?}', 'SeccionesViewsController@Pdf');
+Route::get('/secciones/{id?}', 'SeccionesController@Index');
+Route::get('/colaboradores/{id?}', 'ColaboradoresController@Index');
+Route::get('/revista/{id?}', 'MagazinesController@Revista');
+Route::get('/otras-publicaciones/{id?}', 'MagazinesController@OtrasPublicaciones');
+Route::get('/enlaces/{id?}', 'MagazinesController@Enlaces');
+Route::get('/pdf/view/{sec?}/{id?}', 'SeccionesViewsController@Pdf');
 Event::listen(404, function()
 {
 	return View::make('404');
