@@ -70,7 +70,7 @@ nav1
 					
 					{{HTML::image($magazines->dir_portada,'',array('width'=>'150', 'id' => 'portada'))}}
 					<div id="descarga">
-					<a href="{{$magazines->dir_pdf}}">
+					<a href="/revista/pdf/download/{{$magazines->id}}">
 					{{HTML::image('resources/dpdf.png','',array('width'=>'60'))}}
 					</a>
 				</div>

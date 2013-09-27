@@ -62,7 +62,7 @@ Inicio
 		<div id="contenido">
 			<div id="seccion1">
 			<img class="portada" src="{{$magazines->dir_portada}}" height="200">
-			<a href="{{$magazines->dir_pdf}}">
+			<a href="/revista/pdf/download/{{$magazines->id}}">
 			<img src="resources/dpdf.png" height="30">
 			</a>
 				<div id="numero_fecha">
