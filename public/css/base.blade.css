@@ -17,6 +17,12 @@ src: url(fonts/nova.ttf);
 src: url(fonts/nova.woff); 
 font-weight:normal;
 }
+.gobrigth{
+   float:right;
+}
+.gobleft{
+   float:left;
+}
 .oscuroI{
    display:none;
 }
@@ -40,6 +46,7 @@ font-weight:normal;
    	background-color:#ffcc99;
    	text-decoration: none;
    	font-family:Insignia;
+      margin-top: 1px;
    	padding-top:10px;
    	padding-bottom:10px;
    	display:inline-block;
