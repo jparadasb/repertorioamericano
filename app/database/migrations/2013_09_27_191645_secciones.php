@@ -104,7 +104,8 @@ class Secciones extends Migration {
 	    		$table->engine = 'InnoDB';
 				$table->increments('id');
 				$table->boolean('state');
-				$table->text('txt_editori->unique()al');
+				$table->string('dir_pdf')->unique();
+				$table->text('txt_editorial');
 				$table->integer('magazine_id')->unsigned();
 				$table->integer('click_num');
 				$table->timestamps();
