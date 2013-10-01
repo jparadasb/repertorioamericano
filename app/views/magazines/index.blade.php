@@ -99,7 +99,7 @@ nav1
 							<h1>EDITORIAL</h1>
 						</header>
 						<p class="editorial">
-							{{nl2br($editorial->txt_editorial)}}
+							{{nl2br($magazines->editorial)}}
 						</p>
 					</article>
 				</section>
