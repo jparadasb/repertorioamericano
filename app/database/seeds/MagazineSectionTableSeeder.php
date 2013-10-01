@@ -1,0 +1,55 @@
+<?php
+class MagazineSectionTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('magazine_section')->insert(
+             array(array(
+                        'section_id'=>'1',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/filosofia.pdf'),
+                    array(
+                        'section_id'=>'3',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/ritos.pdf'),
+                    array(
+                        'section_id'=>'4',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/recursos.pdf'),
+                    array(
+                        'section_id'=>'5',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/musica.pdf'),
+                    array(
+                        'section_id'=>'7',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/educacion.pdf'),
+                    array(
+                        'section_id'=>'9',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/geopolitica.pdf'),
+                    array(
+                        'section_id'=>'11',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/anfictionias.pdf'),
+                    array(
+                        'section_id'=>'18',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/economia.pdf'),
+                    array(
+                        'section_id'=>'19',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/ser.pdf'),
+                    array(
+                        'section_id'=>'20',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/arqueologia.pdf'),
+                    array(
+                        'section_id'=>'21',
+                        'magazine_id'=>'1',
+                        'dir_pdf'=>'resources/secciones/1/historia.pdf')
+            )
+);
+    }
+
+}

@@ -1,5 +1,5 @@
 <?php
-class Tema extends Eloquent
+class Section extends Eloquent
 {
 	
 }

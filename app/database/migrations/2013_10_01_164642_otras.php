@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class Temas extends Migration {
+class Otras extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,17 +11,16 @@ class Temas extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('temas', function($table)
-    		{
+		Schema::create('otras', function($table)
+    	{
     		$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->string('model');
-			$table->string('tabla_name');
-			$table->string('real_name');
-			$table->string('url');
+			$table->text('title_pub');
+			$table->string('dir_pdf')->unique();
+			$table->integer('click_num');
+			$table->string('dir_portada')->unique();
 			$table->timestamps();
-
-    		});
+		}); 
 	}
 
 	/**
@@ -31,7 +30,7 @@ class Temas extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('temas');
+		Schema::drop('otras');
 	}
 
 }
