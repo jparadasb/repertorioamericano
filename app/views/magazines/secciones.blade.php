@@ -55,14 +55,12 @@ nav1
 <div class="row">
 	<div class="span24" id="lsecciones">
 		{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
-		<?php
-		foreach($temas as $tema)
-		{
-			$modelo=$tema->model;
-			echo ('<'.strtolower($modelo).'>'.$fsecciones[$modelo].'</'.$modelo.'>');
-
-		}
-		?>
+		
+		@foreach($secciones as $sec)
+		
+			{{$sec}}
+		
+		@endforeach
 		{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'100'))}}
 	</div>
 </div>

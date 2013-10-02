@@ -17,7 +17,7 @@ Route::get('/colaboradores/{id?}', 'ColaboradoresController@Index');
 Route::get('/revista/{id?}', 'MagazinesController@Revista');
 Route::get('/otras-publicaciones/{id?}', 'MagazinesController@OtrasPublicaciones');
 Route::get('/enlaces/{id?}', 'MagazinesController@Enlaces');
-Route::get('/pdf/view/{sec?}/{id?}', 'SeccionesViewsController@Pdf');
+Route::get('/secciones/{sec}/{m_id}/{s_id}', array('uses' => 'SeccionesViewsController@Pdf', 'as' => 'sections.pdf') );
 Event::listen(404, function()
 {
 	return View::make('404');
