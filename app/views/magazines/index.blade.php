@@ -70,7 +70,7 @@ nav1
 					
 					{{HTML::image($magazines->dir_portada,'',array('width'=>'150', 'id' => 'portada'))}}
 					<div id="descarga">
-					<a href="/revista/pdf/download/{{$magazines->id}}">
+					<a href="/descargar-revista/{{$magazines->id}}">
 					{{HTML::image('resources/dpdf.png','',array('width'=>'60'))}}
 					</a>
 				</div>
@@ -86,7 +86,7 @@ nav1
 						PODCAST
 					</div>
 					<?php /*535px*/ ?>
-					<iframe width="100%" height="330" src="//www.youtube.com/embed/XStJhJquMMM" frameborder="0" allowfullscreen></iframe>
+					{{$urlVideo}}
 					</aside>
 					</article>
 				</section>

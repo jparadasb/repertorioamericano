@@ -14,21 +14,24 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+	
 	public function index()
 	{
 		$magazines = Magazine::orderBy('public_date','DESC')->first();
 		
 		if( $magazines !== null )
 		{
-			return View::make('magazines.index') -> with('magazines', $magazines);
+			$urlVideo=Video::orderBy('created_at','DESC')->first();
+			$urlVideo->video();
+			return View::make('magazines.index', array('magazines'=>$magazines, 'urlVideo'=>$urlVideo));
 		}
 		else
 		{
-		return 'No hay registros';//Esto deberia devolver una vista con un error 404
+			return 'No hay registros';//Esto deberia devolver una vista con un error 404
 		}
 		
 	}
+
 //@param int $id recibe la id que sera verificado en la base de datos para cambiar el contenido del sitio
 	public function seleccionado($id)
 	{
@@ -36,12 +39,15 @@ class HomeController extends BaseController {
 
 		if($magazines)
 		{
-			return View::make('magazines.index')-> with('magazines',$magazines);
+			$urlVideo=Video::orderBy('created_at','DESC')->first();
+			$urlVideo->video();
+			return View::make('magazines.index', array('magazines'=>$magazines, 'urlVideo'=>$urlVideo));
 		}
 		else
 		{
 			return 'No hay registros';//Esto deberia devolver un error 404
 		}
 	}
+	
 
 }
