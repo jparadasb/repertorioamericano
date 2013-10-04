@@ -22,9 +22,19 @@ class HomeController extends BaseController {
 		if( $magazines !== null )
 		{
 			$urlVideo=Video::orderBy('created_at','DESC')->first();
-			$urlVideo->video();
-			return View::make('magazines.index', array('magazines'=>$magazines, 'urlVideo'=>$urlVideo));
-		}
+			if($urlVideo !== null)
+			{
+				$url=(string)$urlVideo->url;
+				$url=str_replace('watch?v=','embed/',$url);
+				$urlTag='<iframe width="100%" height="330" src="'.$url.'" frameborder="0" allowfullscreen=""></iframe>';
+			}
+			else
+			{
+				$urlTag='<div with="100%" height="330"></div>';
+			}
+
+			return View::make('magazines.index', array('magazines'=>$magazines, 'urlVideo'=>$urlTag));
+			}
 		else
 		{
 			return 'No hay registros';//Esto deberia devolver una vista con un error 404
@@ -40,8 +50,18 @@ class HomeController extends BaseController {
 		if($magazines)
 		{
 			$urlVideo=Video::orderBy('created_at','DESC')->first();
-			$urlVideo->video();
-			return View::make('magazines.index', array('magazines'=>$magazines, 'urlVideo'=>$urlVideo));
+			if($urlVideo !== null)
+			{
+				$url=(string)$urlVideo->url;
+				$url=str_replace('watch?v=','embed/',$url);
+				$urlTag='<iframe width="100%" height="330" src="'.$url.'" frameborder="0" allowfullscreen=""></iframe>';
+			}
+			else
+			{
+				$urlTag='<div with="100%" height="330" style="background-color:#fff;"></div>';
+			}
+			
+			return View::make('magazines.index', array('magazines'=>$magazines, 'urlVideo'=>$urlTag));
 		}
 		else
 		{
