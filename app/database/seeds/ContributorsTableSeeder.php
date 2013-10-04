@@ -12,7 +12,7 @@ class ContributorsTableSeeder extends Seeder {
                     'txt_col'=>'Economista mexicana. Doctora en Relaciones Económicas Internacionales por la Universidad de París I – Sorbona; Directora del Observatorio Latinoamericano de Geopolítica en el Instituto de Investigaciones Económicas de la Universidad Nacional Autónoma de México.  Ha publicado La territorialidad de la dominación, Estados Unidos y América Latina  (2001); La guerra por el agua y por la vida: Cochabamba : una experiencia de construcción comunitaria frente al neoliberalismo y al Banco Mundial (2004);  Derivas del mundo en el que caben todos los mundos (2009).',
                     ),
                 array(
-                    'real_name'=>'CARLOS ARTURO LONDOÑO RAMOS.',
+                    'real_name'=>'CARLOS ARTURO LONDOÑO RAMOS',
                     'dir_photo'=>'resources/colaboradores/carlosarturo.png',
                     'txt_col'=>'Investigador y docente colombiano. Doctor en filosofía en la Pontificia Universidad Javeriana de Colombia (1993). Catedrático de las universidades Autónoma de Colombia, del Rosario, Libre de Colombia y de Tolima. Profesor del Doctorado en Ciencias de la Educación de RUDECOLOMBIA.  Participa en proyectos sobre pedagogía activa y constructivismo. Articulista de revistas pedagógicas. Ha publicado Dialéctica constructiva de las ciencias (1992), y los artículos “Dominación ideológica sobre la filosofía escolar” (1998), “Posibilidades para la investigación del pensamiento pedagógico latinoamericano” (2000) y “El pragmatismo Dewey y la escuela nueva en Colombia” (2002), entre otros.',
                     ),
