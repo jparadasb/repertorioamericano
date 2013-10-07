@@ -20,6 +20,7 @@ class Magazines extends Migration {
 			$table->date('public_date')->unique();
 			$table->string('dir_pdf');
 			$table->string('dir_portada');
+			$table->text('editorial');
 			$table->timestamps();
 			
 			

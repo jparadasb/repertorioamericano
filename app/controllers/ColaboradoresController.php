@@ -11,12 +11,6 @@ class ColaboradoresController extends \BaseController {
 	{
 		$magazines = Magazine::find($id);
 		$colaboradores=Magazine::find($id)->contributors;
-
-
-	
-
-
-
 		if($magazines)
 		{return View::make('magazines.colaboradores')-> with('magazines',$magazines)-> with('colaboradores',$colaboradores);}
 		else

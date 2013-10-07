@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class OtrasPub extends Migration {
+class Sections extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,16 +11,16 @@ class OtrasPub extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('otras', function($table)
-    	{
+		Schema::create('sections', function($table)
+    		{
     		$table->engine = 'InnoDB';
 			$table->increments('id');
-			$table->text('title_pub');
-			$table->string('dir_pdf');
-			$table->integer('click_num');
-			$table->string('dir_portada');
+			$table->string('html_label')->unique();
+			$table->string('real_name');
+			$table->string('url');
 			$table->timestamps();
-		}); 
+
+    		});
 	}
 
 	/**
@@ -30,7 +30,7 @@ class OtrasPub extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('otras');
+		Schema::drop('sections');
 	}
 
 }

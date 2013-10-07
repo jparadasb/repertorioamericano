@@ -4,60 +4,35 @@ class SeccionesController extends \BaseController {
 
 		public function index($id)
 	{
-		$magazines = Magazine::find($id);
-		$temas = Tema::all();
-/*Esta sección se encarga de identificar cual seccion se encuentra activa para la revista que ha sido pasada por parametros como id*/
-		if(isset($magazines))
+		
+		$magazines=Magazine::find($id)->first();
+		$sections=Section::all();
+		$secAct = $magazines->sections()->get()->all();
+		if($magazines !== null)
 		{
-			if(isset($temas))
+			$sectiones=array();
+			$saIds=array();
+
+			//Guardamos las ID de las secciones activas en un array
+			foreach($secAct as $sact)
 			{
-				$fsecciones=array('0'=>'cero');
-				foreach($temas as $tema)
-				{
-					$modelo=$tema->model;
-					$secciones=$modelo::all();
-					if(!count($secciones)>0)
-						{
-							$tema_f=$tema->real_name;
-							$fsecciones[$tema->model] = $tema_f;
-						}
-					foreach ($secciones as $seccion) {
-
-						if($magazines->id==$seccion->magazine_id)
-						{
-							
-
-							if($seccion->state==true)
-							{
-								$tema_f='<a href="../pdf/view/'.$tema->url.'/'.$seccion->magazine_id.' " class="nyroModal">'.$tema->real_name.'</a>';
-								$fsecciones[$tema->model] = $tema_f;
-							}
-							else
-							{
-								$tema_f=$tema->real_name;
-								$fsecciones[$tema->model] = $tema_f;
-							}
-						}
-						
-
-					}
-
-
-				}
-
+				$saIds[]=$sact->id;//todas estas ID estan activas
 			}
 
+			foreach($sections as $si)
+			{
+				//Verificamos si las ID de la seccion a escribir esta activa o no
+				if(in_array($si->id,$saIds))
+				{
+					$secciones[]='<'.$si->html_label.'>'.'<a href="../secciones/'.$si->url.'/'.$id.'/'.$si->id.' " class="nyroModal">'.$si->real_name.'</a></'.$si->html_label.'>';
+				}
+				else//cuando la seccion no esté activa
+				{
+					$secciones[]='<'.$si->html_label.'>'.$si->real_name.'</'.$si->html_label.'>';
+				}
+			}
+			return View::make('magazines.secciones', array( 'secciones' => $secciones, 'magazines' => $magazines ) );
 
-
-			return View::make('magazines.secciones')
-			-> with('magazines',$magazines)
-			-> with('fsecciones',$fsecciones)
-			-> with('temas', $temas);
 		}
-		
-		else
-		{
-			return 'Id no existe';
-		};
 	}
 }

@@ -6,121 +6,67 @@ class SeccionesViewsController extends \BaseController {
 	{
 		//
 	}
-	public function pdf($sec,$id)
+	public function pdf($sec,$m_id,$s_id)
 	{
+		$m_id=(int)$m_id;
+		$s_id=(int)$s_id;
 
 
-		switch ($sec) {
-			case 'anfictionia-e-integracion':
-				
-				$secciones=Anfictionia::all();
-				break;
+		$infoSection=DB::table('magazine_section')
 
-			case 'filosofia':
-				
-				$secciones=Filosofia::all();
-				break;
+			->where('section_id', '=', $s_id)
+			->where('magazine_id', '=', $m_id)
+			->first();
 
-			case 'editorial':
-				
-				$secciones=Editoriale::all();
-				break;
-				
-			case 'ritos-sagrados':
-				
-				$secciones=Rito::all();
-				break;
-			case 'recursos-naturales':
-				
-				$secciones=Recurso::all();
-				break;
-			case 'musica':
-				
-				$secciones=Musica::all();
-				break;
-			case 'historia-de-la-historieta':
-				
-				$secciones=Historieta::all();
-				break;
-			case 'educacion':
-				
-				$secciones=Educacione::all();
-				break;
-			case 'politica-y-participacion':
-				
-				$secciones=Participacione::all();
-				break;
-			case 'geopolitica':
-				
-				$secciones=Geopolitica::all();
-				break;
-			case 'filologia':
-				
-				$secciones=Filologia::all();
-				break;
-			case 'entrevista':
-				
-				$secciones=Entrevista::all();
-				break;
-			case 'ciencia-y-botanica':
-				
-				$secciones=Ciencia::all();
-				break;
-			case 'critica':
-				
-				$secciones=Critica::all();
-				break;
-			case 'boletin-bibliografico':
-				
-				$secciones=Boletine::all();
-				break;
-			case 'literatura':
-				
-				$secciones=Literatura::all();
-				break;
-			case 'artes':
-				
-				$secciones=Arte::all();
-				break;
-			case 'economia':
-				
-				$secciones=Economia::all();
-				break;
-			case 'el-ser-humano':
-				
-				$secciones=Humano::all();
-				break;
-			case 'arqueologia':
-				
-				$secciones=Arqueologia::all();
-				break;
-			case 'historia-de-america':
-				$secciones=America::all();
-				break;
-			case 'sociologia':
-				$secciones=Sociologia::all();
-				break;
+		$pdf='<embed src="/'.$infoSection->dir_pdf.'" width="600" height="700" type="application/pdf">';
 
-			default:
-				# code...
-				break;
-		}
-		if(isset($secciones))
+		function getRealIP() 
 		{
-			foreach($secciones as $seccion)
+			if (!empty($_SERVER['HTTP_CLIENT_IP']))
 			{
-				$m_id=$seccion->magazine_id;
-				if($m_id==$id)
-				{
-					return View::make('magazines.pdfview') -> with('seccion',$seccion);
-				}
+				return $_SERVER['HTTP_CLIENT_IP'];
 			}
+				        
+				       
+		  	if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+		  	{
+		  		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		  	}
+
+			return $_SERVER['REMOTE_ADDR'];
+		}
+//incrementa las visitas a cada pdf dependiendo de la direccion ip
+
+			
+
+		$cache_name='ip'.$m_id.$s_id.'';
+		$cache_name=(string)$cache_name;
+		$ip=getRealIP();
+		$ip_cache=NULL;
+		if (Cache::has($cache_name))
+		{
+		    $ip_cache=Cache::get($cache_name);
+		    if($ip!==$ip_cache)
+		    {
+		    	DB::table('magazine_section')
+						->where('section_id', '=', $s_id)
+						->where('magazine_id', '=', $m_id)
+						->increment('click_num');
+		    }
 
 		}
-		elseif (!isset($secciones)) 
+		else
 		{
-			return App::abort(404,'ERROR');
+			Cache::put($cache_name, $ip, 1440);
+			DB::table('magazine_section')
+						->where('section_id', '=', $s_id)
+						->where('magazine_id', '=', $m_id)
+						->increment('click_num');
 		}
+		
+		//devuelve el embed construido con el pdf que se pidio
+		return View::make('magazines.pdfview', array('pdf'=>$pdf));
+				
 	}
 
 }
