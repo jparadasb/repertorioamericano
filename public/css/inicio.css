@@ -41,7 +41,7 @@ h1{
 }
 
 #video{
-	margin-left: 290px;
+	float:right;
 	width: 245px;
 	height: 25px;
 	background-color: #ff6600;
