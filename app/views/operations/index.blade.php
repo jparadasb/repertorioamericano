@@ -1,8 +1,7 @@
 {{Form::open(array('route'=>'oparations.login','method'=>'post'))}}
 <fieldset>
-		@if( isset( $message ) && ! empty( $message ) )
-		<legend>{{$message}}</legend>
-		<?php unset( $message );?>
+		@if( Session::has( 'message' ) )
+		<legend>{{Session::get('message')}}</legend>
 		@endif
 
 		@if( $errors->has( 'username' ) )

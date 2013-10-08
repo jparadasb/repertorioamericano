@@ -23,6 +23,7 @@ class OperationsController extends BaseController {
 			{
 				Session::flash('message','El nombre y la contraseña no coinciden, por favor intenta de nuevo.');
 				return Redirect::to('/login')->withInput();
+				
 
 			}
 		}
@@ -37,7 +38,7 @@ class OperationsController extends BaseController {
         {
         	return Redirect::to('users');
         }
-        
+
         return View::make('operations.index');
 	}
 
