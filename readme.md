@@ -23,4 +23,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 #Proyecto Web Nuevo Repertorio Americano 
 
 Sitio web de la revista Nuevo Repertorio Americano
-[Nuevo Repertorio amricano](http://prueba.nuevorepertorioamericano.org)
+[![Nuevo Repertorio Americano](http://prueba.nuevorepertorioamericano.org/favicon.ico)](http://prueba.nuevorepertorioamericano.org)
