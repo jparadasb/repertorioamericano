@@ -46,3 +46,6 @@ petrocaribe,mercosur,unasur{
 	border-left: solid rgba(255,255,255,0.5) 15px;
 	margin-left: -37px;
 	}
+.blank{
+	background: rgba(255,255,255,0.5);
+}

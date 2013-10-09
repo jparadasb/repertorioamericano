@@ -88,6 +88,10 @@ nav1
 					<?php /*535px*/ ?>
 					{{$urlVideo}}
 					</aside>
+<!-- 					<aside>
+												<a href="http://humanidadenred.org.ve">{{HTML::image('resources/rdiadhpng.png')}}</a>
+						<a href="http://fba.org.ve">{{HTML::image('resources/ayacucho.png')}}</a>
+					</aside> -->
 					</article>
 				</section>
 			</div>
@@ -101,6 +105,7 @@ nav1
 						<p class="editorial">
 							{{nl2br($magazines->editorial)}}
 						</p>
+
 					</article>
 				</section>
 			</div>

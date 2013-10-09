@@ -5484,7 +5484,7 @@ a.thumbnail:focus {
 }
 .close:hover,
 .close:focus {
-  color: #000000;
+  color: #FF0000;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.4;

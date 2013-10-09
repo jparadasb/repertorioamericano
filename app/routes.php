@@ -14,12 +14,13 @@
 Route::group(array('before' => 'auth'), function()
 {
    Route::resource('users', 'UsersController');
+   Route::resource('admin', 'AdminController');
+   Route::get('/admin/delete/{id}', 'AdminController@destroy');
 
 });
   Route::get(  '/logout', array( 'uses' => 'OperationsController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
 Route::post('/login', array('uses'=>'OperationsController@login', 'as' => 'oparations.login','before'=>'csrf'));
 Route::get('/login', 'OperationsController@index');
-
 Route::get('/', 'HomeController@Index');
 Route::get('/{id}', 'HomeController@Seleccionado');
 Route::get('/descargar-revista/{id}', array('uses' => 'EsteController@', 'as' => 'descargar.revista') );

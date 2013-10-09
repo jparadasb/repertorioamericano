@@ -1,0 +1,15 @@
+/*admin.style.css*/
+.revistas{
+	display:block;
+	width:150px;
+	background:rgba(255,204,153,1);
+	border:solid #000 1px;
+}
+.btn-revista{
+	cursor:pointer;
+}
+
+.over{
+	position:absolute;
+
+}

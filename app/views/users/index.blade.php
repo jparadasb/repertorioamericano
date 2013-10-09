@@ -1,1 +1,1 @@
-<a href="{{URL::route('operations.logout')}}">Cerrar Sesión</a>
+users.index

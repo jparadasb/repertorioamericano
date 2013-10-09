@@ -118,7 +118,7 @@ background: url(../resources/backrevistas.png) repeat-x 0px -80px;
 }
 
 .oscuro{
-	position: absolute;
+	position: fixed;
 	z-index: 9;
 	background-color: #000;
 	width:100%;

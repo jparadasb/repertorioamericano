@@ -17,6 +17,7 @@ class OperationsController extends BaseController {
 
 			if(Auth::attempt($auth))
 			{
+				
 				return Redirect::to('/login');
 			}
 			else
@@ -36,7 +37,7 @@ class OperationsController extends BaseController {
 	{
         if (Auth::check())
         {
-        	return Redirect::to('users');
+        	return Redirect::to('admin');
         }
 
         return View::make('operations.index');

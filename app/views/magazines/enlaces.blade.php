@@ -50,6 +50,7 @@ nav2
 @stop
 @section('contenido')
 	{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
+	<div class="row blank">
 	<div class="span5" id="left"></div>
 	<div class="span15">
 
@@ -67,6 +68,7 @@ nav2
 	@endforeach
 	</div>
 	<div class="span5" id="right"></div>
+	</div>
 	{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 @stop
 <!--Fin-->

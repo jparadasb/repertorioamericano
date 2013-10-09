@@ -1,1 +1,1 @@
-operations.login.blade
+@extends('layouts.admin')

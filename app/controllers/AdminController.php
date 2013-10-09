@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends BaseController {
+class AdminController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,7 +9,8 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-        return View::make('users.index');
+		$magazines=Magazine::all();
+        return View::make('admin.index')->with('magazines',$magazines);
 	}
 
 	/**
@@ -72,8 +73,17 @@ class UsersController extends BaseController {
 	 * @return Response
 	 */
 	public function destroy($id)
-	{
-		//
+	{	
+		
+		//Magazine::find($id)->contributors->forceDelete();
+		DB::table('magazine_section')
+			->where('magazine_id', '=', $id)
+			->delete();
+		DB::table('contributor_magazine')
+			->where('magazine_id', '=', $id)
+			->delete();
+		Magazine::find($id)->delete();
+		return Redirect::to('admin');
 	}
 
 }
