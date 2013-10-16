@@ -10,7 +10,7 @@
 			Hola, {{Auth::user()->name}}
 		</h4>
 		<h5>
-			Este es el panel de administración
+			Panel de administración
 		</h5>
 		<a href="{{URL::route('operations.logout')}}" class="btn">Cerrar Sesión</a>
 		</div>
@@ -20,11 +20,13 @@
 	@foreach($magazines as $magazine)
 		<article class="revistas">
 		<header class="close">
-			<a href="admin/delete/{{$magazine->id}}">
+			<a href="{{URL::to('admin/delete/'.$magazine->id)}}">
+				
 				X
 			</a>
 		</header>
-		<a href="admin/{{$magazine->id}}/edit">
+		<a href="{{URL::to('admin/'.$magazine->id.'/edit')}}">
+			
 		{{HTML::image($magazine->dir_portada,'',array('width'=>'150', 'id' => 'portada', 'class'=>'btn-revista'))}}
 		</a>
 		</article>
