@@ -20,7 +20,7 @@ class AdminController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('users.create');
+        return View::make('admin.create');
 	}
 
 	/**
@@ -30,7 +30,17 @@ class AdminController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$reglas=
+		array(
+
+			'num_edi'=>'required|numeric',
+			'txt_tema'=>'required',
+			'date_pub'=>'required|date',
+			'txt_edit'=>'required|max:1740',
+			'file_pdf'=>'required|mimes:pdf',
+			'file_image'=>'required|mimes:jpeg,png'
+		);
+		$validador = Validator::make( Input::all(), $rules );
 	}
 
 	/**
@@ -52,7 +62,7 @@ class AdminController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('users.edit');
+        return View::make('admin.edit')->with($id);
 	}
 
 	/**

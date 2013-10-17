@@ -68,6 +68,27 @@ App::down(function()
 {
 	return Response::make("Be right back!", 503);
 });
+/*
+|--------------------------------------------------------------------------
+| Create macro for build custom form input
+|--------------------------------------------------------------------------
+|
+| 
+|
+*/
+Form::macro('custom', function($type, $name, $value = null, $options = array()) {
+    $value = ((is_null($value) or $value == '')) ? \Input::get($name) : $value;
+    $input =  '<input type="'. $type .'" name="' . $name . '" value="' . $value . '"';
+    foreach ($options as $key => $value) {
+        $input .= ' ' . $key . '="' . $value . '"';
+    }
+    return $input.'>';
+});
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -79,5 +100,6 @@ App::down(function()
 | definitions instead of putting them all in the main routes file.
 |
 */
+
 
 require app_path().'/filters.php';
