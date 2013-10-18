@@ -40,7 +40,7 @@ class AdminController extends BaseController {
 			'file_pdf'=>'required|mimes:pdf',
 			'file_image'=>'required|mimes:jpeg,png'
 		);
-		$validador = Validator::make( Input::all(), $rules );
+		$validador = Validator::make( Input::all(), $reglas );
 	}
 
 	/**
