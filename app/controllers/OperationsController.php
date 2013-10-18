@@ -110,7 +110,7 @@ class OperationsController extends BaseController {
 	{
 		Auth::logout();
 		Session::flash('message', 'Has cerrado sesión.');
-		return Redirect::to('/login');
+		return Redirect::to('/');
 	}
 
 }

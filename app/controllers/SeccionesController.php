@@ -5,7 +5,7 @@ class SeccionesController extends \BaseController {
 		public function index($id)
 	{
 		
-		$magazines=Magazine::find($id)->first();
+		$magazines=Magazine::find($id);
 		$sections=Section::all();
 		$secAct = $magazines->sections()->get()->all();
 		if($magazines !== null)
@@ -31,6 +31,7 @@ class SeccionesController extends \BaseController {
 					$secciones[]='<'.$si->html_label.'>'.$si->real_name.'</'.$si->html_label.'>';
 				}
 			}
+			
 			return View::make('magazines.secciones', array( 'secciones' => $secciones, 'magazines' => $magazines ) );
 
 		}

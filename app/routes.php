@@ -17,6 +17,7 @@ Route::group(array('before' => 'auth'), function()
    Route::resource('admin', 'AdminController');
    Route::get('/admin/delete/{id}', 'AdminController@destroy');
 
+
 });
   Route::get(  '/logout', array( 'uses' => 'OperationsController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
 Route::post('/login', array('uses'=>'OperationsController@login', 'as' => 'oparations.login','before'=>'csrf'));
