@@ -4,7 +4,7 @@
 @stop
 @section('contenido')
 <div class="row">
-	<div class="span4 authcolum">
+	<div class="span6 authcolum">
 		<div >
 		<h4>
 			Hola, {{Auth::user()->name}}
@@ -12,11 +12,11 @@
 		<h5>
 			Panel de administración
 		</h5>
-		<a href="{{URL::route('operations.logout')}}" class="btn">Cerrar Sesión</a>
+		<a href="{{URL::route('operations.logout')}}" class="span3 btn">Cerrar Sesión</a>
 		</div>
 	</div>
-	<div class="span20 opciones">
-		<p>Elije la revista que deseas editar o borrar.</p>
+	<div class="span18 opciones">
+		<p>Seleccione o agregue una revista para editar</p>
 	@if($magazines!==NULL)
 		@foreach($magazines as $magazine)
 			<div class="btn revistas">
@@ -33,7 +33,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="span4">
+	<div class="span2">
 		
 	</div>
 	

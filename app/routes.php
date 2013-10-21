@@ -24,7 +24,7 @@ Route::post('/login', array('uses'=>'OperationsController@login', 'as' => 'opara
 Route::get('/login', 'OperationsController@index');
 Route::get('/', 'HomeController@Index');
 Route::get('/{id}', 'HomeController@Seleccionado');
-Route::get('/descargar-revista/{id}', array('uses' => 'EsteController@', 'as' => 'descargar.revista') );
+Route::get('/descargar-revista/{id}', array('uses' => 'DownloadController@show', 'as' => 'descargar.revista') );
 Route::get('/secciones/{id}', 'SeccionesController@Index');
 Route::get('/colaboradores/{id}', 'ColaboradoresController@Index');
 Route::get('/revista/{id}', 'MagazinesController@Revista');

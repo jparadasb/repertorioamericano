@@ -115,7 +115,91 @@ class AdminController extends BaseController {
 	 */
 	public function update($id)
 	{
-		echo 'jajaja';
+		$reglas=
+		array(
+
+			'num_edi'=>'required|numeric',
+			'txt_tema'=>'required',
+			'date_pub'=>'required|date',
+			'txt_edit'=>'required|max:2740',
+			'file_pdf'=>'mimes:pdf',
+			'file_image'=>'mimes:jpeg,png'
+		);
+		$validador = Validator::make( Input::all(), $reglas );
+
+		if( ! $validador->fails() ){
+
+			$magazine 				=		Magazine::find($id);
+			$magazine->num_edi		=		e(Input::get( 'num_edi' ));
+			$magazine->topic_name	=		e(Input::get( 'txt_tema'));
+			$magazine->public_date	=		Input::get('date_pub');
+			$magazine->editorial	=		e(Input::get('txt_edit'));
+
+			if(Input::hasFile('file_pdf')!==false)
+			{
+				$pdf_name=str_random(5).'.pdf';
+				$destino_pdf='resources/pdf/';
+				if(file_exists($magazine->dir_pdf))
+				{
+					unlink($magazine->dir_pdf);
+				}
+				if($pdf=Input::file('file_pdf')->move($destino_pdf,$pdf_name))
+				{
+					$magazine->dir_pdf	= $pdf;
+				}
+				else
+				{
+					return Redirect::to( 'admin/'.$id.'/edit')->with( 'message', 'Se produjo un error al subir archivo.' )->withInput();
+				}
+						
+			}
+
+			if(Input::hasFile('file_image')!==false)
+			{
+				if(file_exists($magazine->dir_portada))
+				{
+					unlink($magazine->dir_portada);
+				}
+
+				$img_portada_name=str_random(4).'.png';
+				$destino_img='resources/photo/';
+				$img=$destino_img.$img_portada_name;
+				if(Image::make(Input::file('file_image')->getRealPath())->resize(154, 236)->save($img,100))
+				{
+					$magazine->dir_portada	=		$img;
+				}
+				else
+				{
+					return Redirect::to( 'admin/'.$id.'/edit')->with( 'message', 'Se produjo un error al subir archivo.' )->withInput();
+				}
+			}
+
+			try
+			{
+				$magazine->save();
+			}
+			catch( Exception $e )
+			{
+				//Si hay algún error en el guardado
+				return Redirect::to( 'admin/'.$id.'/edit')->with( 'message', 'Se produjo un error, por favor intenta de nuevo.' )->withInput();
+				if(file_exists($pdf))
+					{
+						unlink($pdf);
+					}
+				if(file_exists($img))
+					{
+						unlink($img);
+					}
+
+			}
+			return Redirect::to('admin/'.$id.'/edit');
+
+		}
+		else
+		{
+			//Redireccionar hacia el home, incluyendo mensajes de error del validador
+			return Redirect::to( 'admin/'.$id.'/edit')->withErrors( $validador )->withInput();			
+		}
 	}
 
 	/**
@@ -129,8 +213,15 @@ class AdminController extends BaseController {
 		
 		//Magazine::find($id)->contributors->forceDelete();
 		$magazine=Magazine::find($id);
-		unlink($magazine->dir_pdf);
-		unlink($magazine->dir_portada);
+		if(file_exists($magazine->dir_pdf))
+		{
+			unlink($magazine->dir_pdf);
+		}
+		if(file_exists($magazine->dir_portada))
+		{
+			unlink($magazine->dir_portada);
+		}
+
 		DB::table('magazine_section')
 			->where('magazine_id', '=', $id)
 			->delete();

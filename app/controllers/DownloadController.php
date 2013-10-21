@@ -38,7 +38,7 @@ class DownloadController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function showMagazine($id)
+	public function show($id)
 	{
 		$Magazine=Magazine::find($id);
 		$url=$Magazine->dir_pdf;

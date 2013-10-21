@@ -4,7 +4,7 @@
 @stop
 @section('contenido')
 <div class="row">
-	<div class="span8 authcolum">
+	<div class="span6 authcolum">
 		<div >
 		<h4>
 			Hola, {{Auth::user()->name}}
@@ -12,8 +12,9 @@
 		<h5>
 			Panel de administración
 		</h5>
-		<a href="{{URL::route('operations.logout')}}" class="btn">Cerrar Sesión</a>
-		<a href="{{URL::to('/admin')}}" class="btn">Volver</a>
+		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
+		<a href="{{URL::route('operations.logout')}}" class="span3 btn">Cerrar Sesión</a>
+
 		</div>
 	</div>
 	<div class="span16 create">
@@ -26,7 +27,7 @@
 				@endforeach
 			@endif
 			{{Form::label('num_edi', 'Número de Edición', array('class' => 'labels'))}}
-			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'1'))}}
+			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'1', 'class'=>'input-mini'))}}
 			
 			@if( $errors->has( 'txt_tema' ) )
 				@foreach( $errors->get( 'txt_tema' ) as $error )
@@ -35,7 +36,7 @@
 			@endif
 
 			{{Form::label('txt_tema', 'Tema', array('class'=>'labels'))}}
-			{{Form::text('txt_tema',Input::old('txt_tema'))}}
+			{{Form::text('txt_tema',Input::old('txt_tema'),array('class'=>'input-xxlarge'))}}
 
 			@if( $errors->has( 'date_pub' ) )
 				@foreach( $errors->get( 'date_pub' ) as $error )
@@ -44,7 +45,7 @@
 			@endif
 
 			{{Form::label('date_pub', 'Fecha de publicación', array('class'=>'labels'))}}
-			{{Form::custom('date','date_pub',Input::old('date_pub'))}}
+			{{Form::custom('date','date_pub',Input::old('date_pub'),array('calss'=>'input-medium'))}}
 
 			@if( $errors->has( 'txt_edit' ) )
 				@foreach( $errors->get( 'txt_edit' ) as $error )
@@ -53,7 +54,7 @@
 			@endif
 
 			{{Form::label('txt_edit', 'Editorial', array('class'=>'labels'))}}
-			{{Form::text('txt_edit',Input::old('txt_edit'),array('max'=>'1740','rows'=>'50'))}}
+			<textarea id='txt_edit' name='txt_edit' max="1740" rows="10" class="input-xxlarge">{{Input::old('txt_edit')}}</textarea>
 
 			@if( $errors->has( 'file_pdf' ) )
 				@foreach( $errors->get( 'file_pdf' ) as $error )
@@ -80,7 +81,7 @@
 
 
 	</div>
-
+<div class="span2"></div>
 
 	
 </div>
