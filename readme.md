@@ -1,6 +1,12 @@
 ##Nuevo Repertorio Americano
 [![Nuevo Repertorio Americano](http://prueba.nuevorepertorioamericano.org/resources/elnuevorepertorio.png)](http://prueba.nuevorepertorioamericano.org)
-Sitio web del Nuevo Repertorio Americano - Revista de Fundación Biblioteca Ayacucho y el MPPPC.
+
+Sitio web dinamico del Nuevo Repertorio Americano - Revista de Fundación Biblioteca Ayacucho y el MPPPC.
+
+#Funcionabilidad
+
+El sitio cambiara en relación con la revista que se esté viendo y el número de revistas publicadas.
+
 ## Laravel PHP Framework
 
 [![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
