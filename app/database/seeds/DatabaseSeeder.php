@@ -39,5 +39,6 @@
 			$this->command->info('MagazineSection table seeded!');			
 
 			$this->call('UsersTableSeeder');
+		$this->call('MagazineTableSeeder');
 	}
 	}
