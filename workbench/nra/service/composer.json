@@ -1,0 +1,23 @@
+{
+    "name": "nra/service",
+    "description": "",
+    "authors": [
+        {
+            "name": "pstopb",
+            "email": "jparadas.b@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Nra\\Service": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
