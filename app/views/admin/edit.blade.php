@@ -2,25 +2,11 @@
 @section('head')
 {{HTML::style('css/admin.style.css')}}
 @stop
-@section('contenido')
-<div class="row">
-	<div class="span6 authcolum">
-		<div >
-		<h4>
-			Hola, {{Auth::user()->name}}
-		</h4>
-		<h5>
-			Panel de administración
-		</h5>
-		
-		
-		<fieldset>
+@section('authbar')
 		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
 		<a href="{{URL::to('/admin/delete/'.$id)}}" class="span3 btn">Borrar</a>
-		<a href="{{URL::route('operations.logout')}}" class="span3 btn">Cerrar Sesión</a>
-		</fieldset>
-		</div>
-	</div>
+@stop
+@section('contenido')
 	<div class="span18">
 		
 <!-- 		{{Form::model($magazine, array('url' => URL::to('admin/'.$magazine->id), $magazine->id,'method'=>'PUT'))}} -->{{Form::open(array('url' => URL::to('admin/'.$magazine->id), 'files' => true, 'method'=>'PUT'))}}
@@ -87,6 +73,4 @@
 	</div>
 
 	<div class="span2"></div>
-	
-</div>
 @stop

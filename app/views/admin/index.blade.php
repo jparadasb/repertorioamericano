@@ -1,20 +1,11 @@
 @extends('layouts.login')
 @section('head')
-{{HTML::style('css/admin.style.css')}}
+
+@stop
+@section('authbar')
+
 @stop
 @section('contenido')
-<div class="row">
-	<div class="span6 authcolum">
-		<div >
-		<h4>
-			Hola, {{Auth::user()->name}}
-		</h4>
-		<h5>
-			Panel de administración
-		</h5>
-		<a href="{{URL::route('operations.logout')}}" class="span3 btn">Cerrar Sesión</a>
-		</div>
-	</div>
 	<div class="span18 opciones">
 		<p>Seleccione o agregue una revista para editar</p>
 	@if($magazines!==NULL)
@@ -36,7 +27,4 @@
 	<div class="span2">
 		
 	</div>
-	
-</div>
-
 @stop

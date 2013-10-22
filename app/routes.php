@@ -17,6 +17,11 @@ Route::group(array('before' => 'auth'), function()
    Route::resource('admin', 'AdminController');
    Route::get('/admin/delete/{id}', 'AdminController@destroy');
 });
+Route::resource('otras', 'OtrasController');
+Route::resource('sections', 'SectionsController');
+Route::resource('contributors', 'ContributorsController');
+Route::resource('users','UsersController');
+
 
 Route::get(  '/logout', array( 'uses' => 'AdminController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
 Route::post('/login', array('uses'=>'AdminController@login', 'as' => 'oparations.login','before'=>'csrf'));

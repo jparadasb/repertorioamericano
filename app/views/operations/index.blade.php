@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.admin')
 @section('contenido')
 <div class="span10">
 	

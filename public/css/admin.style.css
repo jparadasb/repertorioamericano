@@ -58,3 +58,16 @@
 	filter: alpha(opacity=40);
 	opacity: 0.4;
 }
+nav{
+	clear:both;
+	float:left;
+}
+nav li{
+	display: inline-block;
+}
+nav li .btn{
+	font-size: 60%;
+	width:100px;
+	margin-left: 10px;
+	margin-right: 10px;
+}

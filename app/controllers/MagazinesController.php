@@ -126,28 +126,13 @@ class MagazinesController extends \BaseController {
 
 		$pdf='<embed src="/'.$infoSection->dir_pdf.'" width="600" height="700" type="application/pdf">';
 
-		function getRealIP() 
-		{
-			if (!empty($_SERVER['HTTP_CLIENT_IP']))
-			{
-				return $_SERVER['HTTP_CLIENT_IP'];
-			}
-				        
-				       
-		  	if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
-		  	{
-		  		return $_SERVER['HTTP_X_FORWARDED_FOR'];
-		  	}
-
-			return $_SERVER['REMOTE_ADDR'];
-		}
 //incrementa las visitas a cada pdf dependiendo de la direccion ip
 
 			
 
 		$cache_name='ip'.$m_id.$s_id.'';
 		$cache_name=(string)$cache_name;
-		$ip=getRealIP();
+		$ip=Service::GetIp();
 		$ip_cache=NULL;
 		if (Cache::has($cache_name))
 		{
@@ -184,29 +169,13 @@ class MagazinesController extends \BaseController {
 			header('Content-Disposition: attachment; filename="NRA-Num'.$Magazine->num_edi.'.pdf"');
 			readfile($Magazine->dir_pdf);
 		
-
-			function getRealIP() 
-			{
-				if (!empty($_SERVER['HTTP_CLIENT_IP']))
-				{
-					return $_SERVER['HTTP_CLIENT_IP'];
-				}
-					        
-					       
-			  	if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
-			  	{
-			  		return $_SERVER['HTTP_X_FORWARDED_FOR'];
-			  	}
-
-				return $_SERVER['REMOTE_ADDR'];
-			}
 	//incrementa las visitas a cada pdf dependiendo de la direccion ip
 
 				
 
 			$cache_name='ip_pdfm'.$id;
 			$cache_name=(string)$cache_name;
-			$ip=getRealIP();
+			$ip=Service::GetIp();
 			$ip_cache=NULL;
 			if (Cache::has($cache_name))
 			{

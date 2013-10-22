@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends BaseController {
+class ContributorsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -12,10 +12,10 @@ class UsersController extends BaseController {
 		$this->beforeFilter( 'auth' );
 		$this->beforeFilter( 'csrf', array( 'on' => array( 'store', 'update', 'destroy' ) ) );
 	}
-
+	
 	public function index()
 	{
-        return View::make('users.index');
+        return View::make('contributors.index');
 	}
 
 	/**
@@ -25,7 +25,7 @@ class UsersController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('users.create');
+        return View::make('contributors.create');
 	}
 
 	/**
@@ -46,7 +46,7 @@ class UsersController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('users.show');
+        return View::make('contributors.show');
 	}
 
 	/**
@@ -57,7 +57,7 @@ class UsersController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('users.edit');
+        return View::make('contributors.edit');
 	}
 
 	/**

@@ -2,21 +2,12 @@
 @section('head')
 {{HTML::style('css/admin.style.css')}}
 @stop
-@section('contenido')
-<div class="row">
-	<div class="span6 authcolum">
-		<div >
-		<h4>
-			Hola, {{Auth::user()->name}}
-		</h4>
-		<h5>
-			Panel de administración
-		</h5>
+@section('authbar')
 		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
-		<a href="{{URL::route('operations.logout')}}" class="span3 btn">Cerrar Sesión</a>
-
-		</div>
-	</div>
+	@stop
+@section('contenido')
+	
+	
 	<div class="span16 create">
 		<fieldset>
 			{{Form::open(array('route' => 'admin.store', 'files' => true))}}
@@ -82,7 +73,4 @@
 
 	</div>
 <div class="span2"></div>
-
-	
-</div>
 @stop

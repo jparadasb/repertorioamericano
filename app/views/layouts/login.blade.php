@@ -6,6 +6,7 @@
 	{{HTML::style('css/default.css');}}
 {{HTML::style('css/bootstrap.min.css');}}
 {{HTML::style('css/base.blade.css');}}
+{{HTML::style('css/admin.style.css')}}
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 @section('head')
@@ -31,10 +32,53 @@
 				<a href="http://fba.org.ve">{{HTML::image('resources/ayacucho.png')}}</a>
 			</div>
 		</div> -->
+		
 	</header>
+	
 	<div class="container" id="contenido">
-		@section('contenido')
-		@show
+		<div class="span24">
+			<nav>
+						<UL>
+							<li>
+								<a href="{{URL::to('admin')}}" class="btn">REVISTAS</a>
+							</li>
+							<li>
+								<a href="{{URL::to('sections')}}" class="btn">SECCIONES</a>
+							</li>
+							<li>
+								<a href="{{URL::to('contributors')}}" class="btn">COLABORADORES</a>
+							</li>
+							<li>
+								<a href="{{URL::to('otras')}}" class="btn">OTRAS PUBLICACIONES</a>
+							</li>
+	<!-- 						<li id=@yield('ide')>
+								<a href=@yield('enlaceslink')>ENLACES</a>
+							</li> -->
+						</UL>
+
+			</nav>
+		</div>
+		
+		<div class="row">
+				<div class="span6 authcolum">
+					<div >
+					<h4>
+						Hola, {{Auth::user()->name}}
+					</h4>
+					<h5>
+						Panel de administración
+					</h5>
+					@section('authbar')
+
+					@show
+					<a href="{{URL::route('operations.logout')}}" class="span3 btn">Cerrar Sesión</a>
+					</div>
+				</div>
+			@section('contenido')
+
+			@show
+		</div>
+		
 	</div>
 	<div class="container">
 		<footer>
