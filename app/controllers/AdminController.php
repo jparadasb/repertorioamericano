@@ -7,6 +7,47 @@ class AdminController extends BaseController {
 	 *
 	 * @return Response
 	 */
+	public function formlogin()
+	{
+        if (Auth::check())
+        {
+        	return Redirect::to('admin');
+        }
+
+        return View::make('operations.index');
+	}
+	public function logout()
+	{
+		Auth::logout();
+		Session::flash('message', 'Has cerrado sesión.');
+		return Redirect::to('/');
+	}
+	public function login()
+	{
+		$validator = Validator::make( Input::all(),array('username'=>'required','password'=>'required'));
+
+		if(!$validator->fails())
+		{
+			$auth = array('user_name'=>Input::get('username'),'password'=>Input::get('password'));
+
+			if(Auth::attempt($auth))
+			{
+				
+				return Redirect::to('/login');
+			}
+			else
+			{
+				Session::flash('message','El nombre y la contraseña no coinciden, por favor intenta de nuevo.');
+				return Redirect::to('/login')->withInput();
+				
+
+			}
+		}
+		else
+		{
+			return Redirect::to('/login')->withErrors($validator)->withInput();
+		}
+	}
 	public function index()
 	{
 		$magazines=Magazine::all();

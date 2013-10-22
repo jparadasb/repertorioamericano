@@ -33,7 +33,7 @@ class OperationsController extends BaseController {
 			return Redirect::to('/login')->withErrors($validator)->withInput();
 		}
 	}
-	public function index()
+	public function formlogin()
 	{
         if (Auth::check())
         {
