@@ -1,6 +1,8 @@
 @extends('layouts.login')
 @section('head')
 {{HTML::style('css/admin.style.css')}}
+{{HTML::script('js/jquery-2.0.3.js')}}
+{{HTML::script('http://malsup.github.com/jquery.form.js')}}
 @stop
 @section('authbar')
 		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
@@ -10,7 +12,7 @@
 	
 	<div class="span16 create">
 		<fieldset>
-			{{Form::open(array('route' => 'admin.store', 'files' => true))}}
+			{{Form::open(array('route' => 'admin.store', 'files' => true, 'id'=>'form'))}}
 
 			@if( $errors->has( 'num_edi' ) )
 				@foreach( $errors->get( 'num_edi' ) as $error )
@@ -68,12 +70,28 @@
 		{{Form::submit( 'Guardar' )}}
     	{{Form::token()}}
 		{{ Form::close() }}
-		<?php 
-		$clave = ini_get("session.upload_progress.prefix") . $_POST[ini_get("session.upload_progress.name")];
-		var_dump($_SESSION[$clave]);
-		?>
-
-
 	</div>
+	<div class="progress">
+		<progress value="22" max="100" id="progressbar"></progress>
+	</div>
+	
 <div class="span2"></div>
+@stop
+@section('jquery')
+<script type='text/javascript'>
+$(document).ready(function() {
+    var bar = $('#progressbar');
+	     $('#form').ajaxForm({ 
+	            beforeSubmit: function() {
+	                var percentVal = 0;
+	                bar.val(percentVal)
+	            },             
+	            uploadProgress: function(event, position, total, percentComplete) {
+	                var percentVal = percentComplete;
+	                bar.val(percentVal)
+	            }    
+	            }); 
+ 
+   });     
+</script>
 @stop

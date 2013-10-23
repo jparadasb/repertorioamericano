@@ -93,5 +93,7 @@
 			</div>
 		</footer>
 	</div>
+@section('jquery')
+@show
 </body>
 </html>
