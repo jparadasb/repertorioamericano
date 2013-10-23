@@ -12,7 +12,7 @@
 	
 	<div class="span16 create">
 		<fieldset>
-			{{Form::open(array('route' => 'admin.store', 'files' => true, 'id'=>'form'))}}
+			{{Form::open(array('route' => 'admin.store', 'files' => true, 'id'=>'form', 'method'=>'POST'))}}
 
 			@if( $errors->has( 'num_edi' ) )
 				@foreach( $errors->get( 'num_edi' ) as $error )
@@ -71,27 +71,44 @@
     	{{Form::token()}}
 		{{ Form::close() }}
 	</div>
-	<div class="progress">
-		<progress value="22" max="100" id="progressbar"></progress>
-	</div>
-	
 <div class="span2"></div>
+@stop
+@section('afterbody')
+	<div class="progreso">
+		<div class="barra">
+			<progress value="0" max="100" id="progressbar"></progress>
+		</div>
+	</div>
 @stop
 @section('jquery')
 <script type='text/javascript'>
 $(document).ready(function() {
-    var bar = $('#progressbar');
 	     $('#form').ajaxForm({ 
-	            beforeSubmit: function() {
-	                var percentVal = 0;
-	                bar.val(percentVal)
-	            },             
-	            uploadProgress: function(event, position, total, percentComplete) {
-	                var percentVal = percentComplete;
-	                bar.val(percentVal)
-	            }    
+
+		            beforeSubmit: function() {
+		            	$('.progreso').css('display','block');
+		                var percentVal = 0;
+		                $('#progressbar').val(percentVal)
+
+		            },             
+		            uploadProgress: function(event, position, total, percentComplete) {
+		                var percentVal = percentComplete;
+		                $('#progressbar').val(percentVal)
+		            },
+		            complete: function(){
+		            	var percentVal = 100;
+		                $('#progressbar').val(percentVal);
+		                $('.progreso').css('display','none');
+		                },
+		            success: function (retorna){
+		            		// $('head').remove();
+		            		// $('body').remove();
+		            		// $('html').html(retorna);
+		            	 	console.log(retorna);
+		            }
 	            }); 
- 
-   });     
+
+   }); 
+    
 </script>
 @stop

@@ -120,6 +120,7 @@ class AdminController extends BaseController {
 		else
 		{
 			//Redireccionar hacia el home, incluyendo mensajes de error del validador
+			
 			return Redirect::route( 'admin.create' )->withErrors( $validador )->withInput();			
 		}
 	}

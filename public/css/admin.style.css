@@ -71,3 +71,23 @@ nav li .btn{
 	margin-left: 10px;
 	margin-right: 10px;
 }
+.progreso{
+	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color: rgba(202, 202, 202, 0.5);
+}
+.progreso .barra{
+	width:256px;
+	height:64px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left: -128px;
+	margin-top: -32px;
+}
+.progreso .barra #progressbar{
+	width:200px;
+	height:60px;
+}

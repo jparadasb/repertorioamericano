@@ -13,6 +13,8 @@
 @show
 </head>
 <body>
+@section('afterbody')
+@show
 <div class="oscuroI" id="oscuro"></div>
 	<header class="container">
 		<div class="row">
