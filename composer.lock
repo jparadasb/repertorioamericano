@@ -525,16 +525,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "1.0.8",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "d086796e7cfb59f532d07738e5e4cf0ac3c6deb8"
+                "reference": "12e144c788b275e5869ac15eda7bd0ae5da775bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/d086796e7cfb59f532d07738e5e4cf0ac3c6deb8",
-                "reference": "d086796e7cfb59f532d07738e5e4cf0ac3c6deb8",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/12e144c788b275e5869ac15eda7bd0ae5da775bd",
+                "reference": "12e144c788b275e5869ac15eda7bd0ae5da775bd",
                 "shasum": ""
             },
             "require": {
@@ -572,7 +572,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2013-08-06 20:39:59"
+            "time": "2013-06-10 12:22:13"
         },
         {
             "name": "intervention/image",
@@ -717,18 +717,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e0458866ce3af04125c28db9c65b8fbc98934a79"
+                "reference": "1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e0458866ce3af04125c28db9c65b8fbc98934a79",
-                "reference": "e0458866ce3af04125c28db9c65b8fbc98934a79",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d",
+                "reference": "1dd5eb268e2b1ad8d0a45ece8aa7b22ee99ab30d",
                 "shasum": ""
             },
             "require": {
                 "classpreloader/classpreloader": "1.0.*",
                 "doctrine/dbal": "2.4.*",
-                "filp/whoops": "1.0.8",
+                "filp/whoops": "1.0.7",
                 "ircmaxell/password-compat": "1.0.*",
                 "jeremeamia/superclosure": "1.0.*",
                 "monolog/monolog": "1.6.*",
@@ -822,7 +822,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-10-18 04:03:19"
+            "time": "2013-10-22 01:45:48"
         },
         {
             "name": "monolog/monolog",
