@@ -66,7 +66,7 @@
 			{{Form::label('file_image', 'Imagen de la portada', array('class'=>'labels'))}}
 			{{Form::file('file_image',array('accept'=>'.JPG,.jpg,.jpeg,.png'))}}
 		</fieldset>
-		{{Form::submit( 'Guardar' )}}
+		{{Form::submit( 'Guardar',array('class'=>'submit') )}}
     	{{Form::token()}}
 		{{ Form::close() }}
 	</div>
@@ -107,7 +107,7 @@ $(document).ready(function() {
 		   //          	 	//console.log(retorna);
 		   //          }
 	    //         }); 
-	$('<input type="submit"').click(function() {
+	$('.submit').click(function() {
 		$('.progreso').css('display','block');
 	});
 
