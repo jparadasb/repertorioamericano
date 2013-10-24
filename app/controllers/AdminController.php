@@ -114,16 +114,14 @@ class AdminController extends BaseController {
 				unlink($pdf);
 				unlink($img);
 			}
-			$re=Redirect::to('admin');
-			echo $re;
-
+			return Redirect::to('admin');
 		}
 		else
 		{
 			//Redireccionar hacia el home, incluyendo mensajes de error del validador
 			
 
-			echo Redirect::route( 'admin.create' )->withErrors( $validador )->withInput();
+			return Redirect::route( 'admin.create' )->withErrors( $validador )->withInput();
 	
 		}
 	}

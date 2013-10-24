@@ -2,7 +2,6 @@
 @section('head')
 {{HTML::style('css/admin.style.css')}}
 {{HTML::script('js/jquery-2.0.3.js')}}
-{{HTML::script('js/jquery.form.js')}}
 @stop
 @section('authbar')
 		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
@@ -76,7 +75,7 @@
 @section('afterbody')
 	<div class="progreso">
 		<div class="barra">
-			<progress value="0" max="100" id="progressbar"></progress>
+			<progress value="100" max="100" id="progressbar"></progress>
 
 		</div>
 		<div class="pr">
@@ -87,27 +86,30 @@
 @section('jquery')
 <script type='text/javascript'>
 $(document).ready(function() {
-	     $('#form').ajaxForm({ 
-					dataType: "text",
-					contentType: "text/plain",
-		            beforeSubmit: function() {
-		            	$('.progreso').css('display','block');
-		                var percentVal = 0;
-		                $('#progressbar').val(percentVal)
-		            },             
-		            uploadProgress: function(event, position, total, percentComplete) {
-		                var percentVal = percentComplete;
-		                $('#progressbar').val(percentVal);
-		            },
-		            complete: function(){
-		            	var percentVal = 100;
-		                $('#progressbar').val(percentVal);
-		                },
-		            success: function (retorna){
-		            		$('.pr').html(retorna);
-		            	 	//console.log(retorna);
-		            }
-	            }); 
+	    //  $('#form').ajaxForm({ 
+					// dataType: "text",
+					// contentType: "text/plain",
+		   //          beforeSubmit: function() {
+		   //          	$('.progreso').css('display','block');
+		   //              var percentVal = 0;
+		   //              $('#progressbar').val(percentVal)
+		   //          },             
+		   //          uploadProgress: function(event, position, total, percentComplete) {
+		   //              var percentVal = percentComplete;
+		   //              $('#progressbar').val(percentVal);
+		   //          },
+		   //          complete: function(){
+		   //          	var percentVal = 100;
+		   //              $('#progressbar').val(percentVal);
+		   //              },
+		   //          success: function (retorna){
+		   //          		$('header').html(retorna);
+		   //          	 	//console.log(retorna);
+		   //          }
+	    //         }); 
+	$('<input type="submit"').click(function() {
+		$('.progreso').css('display','block');
+	});
 
    }); 
     
