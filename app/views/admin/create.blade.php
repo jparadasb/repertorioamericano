@@ -15,55 +15,55 @@
 
 			@if( $errors->has( 'num_edi' ) )
 				@foreach( $errors->get( 'num_edi' ) as $error )
-				<label for="num_edi" class="error">{{$error}}</label>
+				<label for="num_edi" class="text-error">{{$error}}</label>
 				@endforeach
 			@endif
-			{{Form::label('num_edi', 'Número de Edición', array('class' => 'labels'))}}
+			{{Form::label('num_edi', 'Número de Edición', array('class' => 'label label-clear'))}}
 			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'1', 'class'=>'input-mini'))}}
 			
 			@if( $errors->has( 'txt_tema' ) )
 				@foreach( $errors->get( 'txt_tema' ) as $error )
-				<label for="txt_tema" class="error">{{$error}}</label>
+				<label for="txt_tema" class="text-error">{{$error}}</label>
 				@endforeach
 			@endif
 
-			{{Form::label('txt_tema', 'Tema', array('class'=>'labels'))}}
+			{{Form::label('txt_tema', 'Tema', array('class'=>'label label-clear'))}}
 			{{Form::text('txt_tema',Input::old('txt_tema'),array('class'=>'input-xxlarge'))}}
 
 			@if( $errors->has( 'date_pub' ) )
 				@foreach( $errors->get( 'date_pub' ) as $error )
-				<label for="date_pub" class="error">{{$error}}</label>
+				<label for="date_pub" class="text-error">{{$error}}</label>
 				@endforeach
 			@endif
 
-			{{Form::label('date_pub', 'Fecha de publicación', array('class'=>'labels'))}}
+			{{Form::label('date_pub', 'Fecha de publicación', array('class'=>'label label-clear'))}}
 			{{Form::custom('date','date_pub',Input::old('date_pub'),array('calss'=>'input-medium'))}}
 
 			@if( $errors->has( 'txt_edit' ) )
 				@foreach( $errors->get( 'txt_edit' ) as $error )
-				<label for="txt_edit" class="error">{{$error}}</label>
+				<label for="txt_edit" class="text-error">{{$error}}</label>
 				@endforeach
 			@endif
 
-			{{Form::label('txt_edit', 'Editorial', array('class'=>'labels'))}}
+			{{Form::label('txt_edit', 'Editorial', array('class'=>'label label-clear'))}}
 			<textarea id='txt_edit' name='txt_edit' max="1740" rows="10" class="input-xxlarge">{{Input::old('txt_edit')}}</textarea>
 
 			@if( $errors->has( 'file_pdf' ) )
 				@foreach( $errors->get( 'file_pdf' ) as $error )
-				<label for="file_pdf" class="error">{{$error}}</label>
+				<label for="file_pdf" class="text-error">{{$error}}</label>
 				@endforeach
 			@endif
 
-			{{Form::label('file_pdf', 'Revista en Pdf', array('class'=>'labels'))}}
+			{{Form::label('file_pdf', 'Revista en Pdf', array('class'=>'label label-clear'))}}
 			{{Form::file('file_pdf',array('accept'=>'.pdf'))}}
 
 			@if( $errors->has( 'file_image' ) )
 				@foreach( $errors->get( 'file_image' ) as $error )
-				<label for="file_image" class="error">{{$error}}</label>
+				<label for="file_image" class="text-error">{{$error}}</label>
 				@endforeach
 			@endif
 
-			{{Form::label('file_image', 'Imagen de la portada', array('class'=>'labels'))}}
+			{{Form::label('file_image', 'Imagen de la portada', array('class'=>'label label-clear'))}}
 			{{Form::file('file_image',array('accept'=>'.JPG,.jpg,.jpeg,.png'))}}
 		</fieldset>
 		{{Form::submit( 'Guardar',array('class'=>'submit') )}}
