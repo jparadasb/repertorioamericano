@@ -2,6 +2,7 @@
 @section('head')
 {{HTML::style('css/admin.style.css')}}
 {{HTML::script('js/jquery-2.0.3.js')}}
+{{HTML::script('js/jquery.uploadProgress.js')}}
 @stop
 @section('authbar')
 		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
@@ -86,30 +87,18 @@
 @section('jquery')
 <script type='text/javascript'>
 $(document).ready(function() {
-	    //  $('#form').ajaxForm({ 
-					// dataType: "text",
-					// contentType: "text/plain",
-		   //          beforeSubmit: function() {
-		   //          	$('.progreso').css('display','block');
-		   //              var percentVal = 0;
-		   //              $('#progressbar').val(percentVal)
-		   //          },             
-		   //          uploadProgress: function(event, position, total, percentComplete) {
-		   //              var percentVal = percentComplete;
-		   //              $('#progressbar').val(percentVal);
-		   //          },
-		   //          complete: function(){
-		   //          	var percentVal = 100;
-		   //              $('#progressbar').val(percentVal);
-		   //              },
-		   //          success: function (retorna){
-		   //          		$('header').html(retorna);
-		   //          	 	//console.log(retorna);
-		   //          }
-	    //         }); 
-	$('.submit').click(function() {
-		$('.progreso').css('display','block');
-	});
+				$('form').uploadProgress({
+					jqueryPath: "/js/jquery.js",
+					uploadProgressPath: "/js/jquery.uploadProgress.js",
+					start:function(){},
+					uploading: function(upload) {
+													$('#progressbar').val(upload.percents);
+												},
+					interval: 2000
+                });
+				$('#form').submit(function(event) {
+					$('.progreso').css('display','block');
+				});
 
    }); 
     
