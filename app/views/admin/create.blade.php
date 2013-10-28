@@ -2,7 +2,9 @@
 @section('head')
 {{HTML::style('css/admin.style.css')}}
 {{HTML::script('js/jquery-2.0.3.js')}}
-{{HTML::script('js/jquery.uploadProgress.js')}}
+{{HTML::script('js/jquery.form-validator.min.js')}}
+{{HTML::script('js/jquery.form.min.js')}}
+
 @stop
 @section('authbar')
 		<a href="{{URL::to('/admin')}}" class="span3 btn">Volver</a>
@@ -20,7 +22,7 @@
 				@endforeach
 			@endif
 			{{Form::label('num_edi', 'Número de Edición', array('class' => 'label label-clear'))}}
-			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'1', 'class'=>'input-mini'))}}
+			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'1', 'class'=>'input-mini','required'=>'required','data-validation'=>'number'))}}
 			
 			@if( $errors->has( 'txt_tema' ) )
 				@foreach( $errors->get( 'txt_tema' ) as $error )
@@ -29,7 +31,7 @@
 			@endif
 
 			{{Form::label('txt_tema', 'Tema', array('class'=>'label label-clear'))}}
-			{{Form::text('txt_tema',Input::old('txt_tema'),array('class'=>'input-xxlarge'))}}
+			{{Form::text('txt_tema',Input::old('txt_tema'),array('class'=>'input-xxlarge', 'required'=>'required'))}}
 
 			@if( $errors->has( 'date_pub' ) )
 				@foreach( $errors->get( 'date_pub' ) as $error )
@@ -38,7 +40,7 @@
 			@endif
 
 			{{Form::label('date_pub', 'Fecha de publicación', array('class'=>'label label-clear'))}}
-			{{Form::custom('date','date_pub',Input::old('date_pub'),array('calss'=>'input-medium'))}}
+			{{Form::custom('date','date_pub',Input::old('date_pub'),array('class'=>'input-medium','required'=>'required','data-validation'=>'date','data-validation-format'=>'yyyy-mm-dd'))}}
 
 			@if( $errors->has( 'txt_edit' ) )
 				@foreach( $errors->get( 'txt_edit' ) as $error )
@@ -47,7 +49,7 @@
 			@endif
 
 			{{Form::label('txt_edit', 'Editorial', array('class'=>'label label-clear'))}}
-			<textarea id='txt_edit' name='txt_edit' max="1740" rows="10" class="input-xxlarge">{{Input::old('txt_edit')}}</textarea>
+			<textarea id='txt_edit' name='txt_edit' max="1740" rows="10" class="input-xxlarge" required data-validation="length" data-validation-length="max1740">{{Input::old('txt_edit')}}</textarea>
 
 			@if( $errors->has( 'file_pdf' ) )
 				@foreach( $errors->get( 'file_pdf' ) as $error )
@@ -56,7 +58,7 @@
 			@endif
 
 			{{Form::label('file_pdf', 'Revista en Pdf', array('class'=>'label label-clear'))}}
-			{{Form::file('file_pdf',array('accept'=>'.pdf'))}}
+			{{Form::file('file_pdf',array('accept'=>'.pdf', 'required'=>'required','data-validation'=>'mime size', 'data-validation-allowing'=>'pdf', 'data-validation-max-size'=>'100M','data-validation-error-msg'=>'El archivo debe ser pdf no mayor a 100MB de tamaño'))}}
 
 			@if( $errors->has( 'file_image' ) )
 				@foreach( $errors->get( 'file_image' ) as $error )
@@ -65,7 +67,7 @@
 			@endif
 
 			{{Form::label('file_image', 'Imagen de la portada', array('class'=>'label label-clear'))}}
-			{{Form::file('file_image',array('accept'=>'.JPG,.jpg,.jpeg,.png'))}}
+			{{Form::file('file_image',array('accept'=>'.JPG,.jpg,.jpeg,.png','required'=>'required','data-validation'=>'mime size', 'data-validation-allowing'=>'jpg, png', 'data-validation-max-size'=>'50M', 'data-validation-max-size'=>'100M','data-validation-error-msg'=>'El archivo debe ser jpg o png no mayor a 50MB de tamaño'))}}
 		</fieldset>
 		{{Form::submit( 'Guardar',array('class'=>'submit') )}}
     	{{Form::token()}}
@@ -75,32 +77,45 @@
 @stop
 @section('afterbody')
 	<div class="progreso">
-		<div class="barra">
-			<progress value="100" max="100" id="progressbar"></progress>
-
-		</div>
-		<div class="pr">
-			
+		<div class="bar">
+			<div class="progress-a">
+				
+			</div>
 		</div>
 	</div>
 @stop
 @section('jquery')
 <script type='text/javascript'>
-$(document).ready(function() {
-				$('form').uploadProgress({
-					jqueryPath: "/js/jquery.js",
-					uploadProgressPath: "/js/jquery.uploadProgress.js",
-					start:function(){},
-					uploading: function(upload) {
-													$('#progressbar').val(upload.percents);
-												},
-					interval: 2000
-                });
-				$('#form').submit(function(event) {
-					$('.progreso').css('display','block');
-				});
 
-   }); 
-    
+				$.validate({
+					modules : 'file, date',
+
+				});
+				// $('body').click(function(event) {
+				// 	$('.progreso').css('display','block');
+				// });
+				 $(document).ready(function() { 
+
+		            $('#form').ajaxForm({ 
+
+						beforeSend: function() {
+
+							$('.progreso').css('display','block');
+							var percentVal = '0%';
+							$('.progress-a').css('width',percentVal);
+							$('.progress-a').html(percentVal);
+						},             
+						uploadProgress: function(event, position, total, percentComplete) {
+							var percentVal = percentComplete + '%';
+							$('.progress-a').css('width',percentVal);
+							$('.progress-a').html(percentVal);
+						},
+						complete: function(xhr) {
+							
+							$(location).attr('href','/admin'); 
+							} 
+
+		            }); 
+		        }); 
 </script>
 @stop
