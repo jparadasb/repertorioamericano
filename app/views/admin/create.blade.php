@@ -81,6 +81,7 @@
 			<div class="progress-a">
 				
 			</div>
+			a.
 		</div>
 	</div>
 @stop
@@ -94,7 +95,8 @@
 				// $('body').click(function(event) {
 				// 	$('.progreso').css('display','block');
 				// });
-				 $(document).ready(function() { 
+
+				$(document).ready(function() { 
 
 		            $('#form').ajaxForm({ 
 
@@ -111,7 +113,7 @@
 							$('.progress-a').html(percentVal);
 						},
 						complete: function(xhr) {
-							
+
 							$(location).attr('href','/admin'); 
 							} 
 
