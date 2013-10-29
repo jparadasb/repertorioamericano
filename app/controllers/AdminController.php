@@ -110,9 +110,15 @@ class AdminController extends BaseController {
 			catch( Exception $e )
 			{
 				//Si hay algún error en el guardado
+				if(file_exists($pdf))
+				{
+					unlink($pdf);
+				}
+				if(file_exists($img))
+				{
+					unlink($img);
+				}
 				return Redirect::route('admin.create')->with( 'message', 'Se produjo un error, por favor intenta de nuevo.' )->withInput();
-				unlink($pdf);
-				unlink($img);
 			}
 			return Redirect::to('admin');
 		}

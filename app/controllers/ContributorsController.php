@@ -15,7 +15,8 @@ class ContributorsController extends BaseController {
 	
 	public function index()
 	{
-        return View::make('contributors.index');
+        $contributors 	=	Contributor::all();
+        return View::make('contributors.index')->with('contributors',$contributors);
 	}
 
 	/**

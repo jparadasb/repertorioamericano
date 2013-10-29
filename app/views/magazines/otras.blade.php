@@ -57,7 +57,7 @@ nav1
 	<div class="span18">
 		@foreach($otras_pub as $otra)
 		<a href="../../{{$otra->dir_pdf}}">
-		<img class="portada" src="{{$otra->dir_portada}}" width="220">
+		<img class="portada" src="../{{$otra->dir_portada}}" width="220">
 		</a>
 		@endforeach
 	</div>

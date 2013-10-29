@@ -1,0 +1,8 @@
+/*contributors.css*/
+.revistas, .agregar{
+	height: 146px;
+}
+.revistas img, .agregar img{
+	height: 146px;
+	margin-top: 0;
+}

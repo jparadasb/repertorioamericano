@@ -16,7 +16,9 @@ Route::group(array('before' => 'auth'), function()
    Route::resource('users', 'UsersController');
    Route::resource('admin', 'AdminController');
    Route::get('/admin/delete/{id}', 'AdminController@destroy');
+   Route::get('/otras/delete/{id}', 'OtrasController@destroy');
 });
+
 Route::resource('otras', 'OtrasController');
 Route::resource('sections', 'SectionsController');
 Route::resource('contributors', 'ContributorsController');

@@ -15,7 +15,8 @@ class OtrasController extends BaseController {
 	
 	public function index()
 	{
-        return View::make('otras.index');
+		$otras = Otra::all();
+        return View::make('otras.index')->with('otras',$otras);;
 	}
 
 	/**
@@ -35,7 +36,51 @@ class OtrasController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$reglas=
+		array(
+
+			'txt_title'=>'required',
+			'file_pdf'=>'required|mimes:pdf',
+			'file_image'=>'required|mimes:jpeg,png'
+		);
+		$validador = Validator::make( Input::all(), $reglas );
+		if( ! $validador->fails() ){
+
+			$img_portada_name=str_random(4).'.png';
+			$destino_img='resources/photo/';
+			$img=$destino_img.$img_portada_name;
+			Image::make(Input::file('file_image')->getRealPath())->resize(154, 236)->save($img,100);
+			
+
+			$destino_pdf='resources/pdf';
+			$pdf_name=str_random(5).'.pdf';
+			$pdf=Input::file('file_pdf')->move($destino_pdf,$pdf_name);
+
+			$otra 				= 	new Otra();
+			$otra->title_pub	=	e(Input::get('txt_title'));
+			$otra->dir_pdf		=	$pdf;
+			$otra->dir_portada	=	$img;
+
+			try
+			{
+				$otra->save();
+			}
+			catch( Exception $e )
+			{
+				//Si hay algún error en el guardado
+				if(file_exists($pdf))
+				{
+					unlink($pdf);
+				}
+				if(file_exists($img))
+				{
+					unlink($img);
+				}
+				return 'Se produjo un error, por favor intenta de nuevo.';
+			}
+			return Redirect::to('admin');	
+
+		}
 	}
 
 	/**
@@ -57,7 +102,8 @@ class OtrasController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('otras.edit');
+		$otra=Otra::find($id);
+        return View::make('otras.edit')->with('otra',$otra);
 	}
 
 	/**
@@ -79,7 +125,17 @@ class OtrasController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$otra=Otra::find($id);
+		if(file_exists($otra->dir_pdf))
+		{
+			unlink($otra->dir_pdf);
+		}
+		if(file_exists($otra->dir_portada))
+		{
+			unlink($otra->dir_portada);
+		}
+		Otra::find($id)->delete();
+		return Redirect::to('otras');
 	}
 
 }
