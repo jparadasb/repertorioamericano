@@ -39,7 +39,7 @@
         <div class="container">
                 <footer>
                         <div class="row">
-                                <div class="span21">
+                                <div class="span12">
                                         Centro Financiero Latino, piso 12. Ofics 1, 2 y 3. Avenida Urdaneta. Ánimas a Plaza España. Caracas 1010. Venezuela - Apartados Postales 14.413 y 2.122
                                          Teléfonos +58 212 561 6691 - Fax +58 212 564 5643
                                 </div>

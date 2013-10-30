@@ -152,8 +152,32 @@ class AdminController extends BaseController {
 	public function edit($id)
 	{
         $magazine=Magazine::find($id);
+        $actives=$magazine->contributors()->get();
+        $contributors=Contributor::all();
+        $attributes 	=	array('class'=>'activo');
 
-        return View::make('admin.edit')->with('magazine',$magazine)->with('id',$id);
+        foreach($actives as $active)
+        {
+        	$ids[]=$active->id;
+        }
+        foreach($contributors as $contributor)
+        {
+        	if(in_array($contributor->id,$ids))
+        	{
+        		$salida[] 		=	
+        		Form::open(array('action' => 'ContributorsController@descol'), 'POST').
+        		Form::hidden('id', $contributor->id).
+        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name, $attributes).
+        		Form::token().
+        		Form::close();
+        	}
+        	else
+        	{
+        		$salida[] 		=	HTML::image('/'.$contributor->dir_photo, $contributor->real_name);
+        	}
+        }
+
+        return View::make('admin.edit', array('magazine'=>$magazine, 'id'=>$id, 'contributors'=>$salida));
 	}
 
 	/**

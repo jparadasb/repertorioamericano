@@ -82,5 +82,9 @@ class ContributorsController extends BaseController {
 	{
 		//
 	}
+	public function descol()
+	{
+
+	}
 
 }

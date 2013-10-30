@@ -24,6 +24,7 @@ Route::resource('sections', 'SectionsController');
 Route::resource('contributors', 'ContributorsController');
 Route::resource('users','UsersController');
 
+Route::post('/descol/', array('uses'=>'ContributorsController@descol', 'as'=>'Contributors.des'));
 
 Route::get(  '/logout', array( 'uses' => 'AdminController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
 Route::post('/login', array('uses'=>'AdminController@login', 'as' => 'oparations.login','before'=>'csrf'));

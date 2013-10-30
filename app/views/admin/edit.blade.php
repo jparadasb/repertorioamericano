@@ -76,6 +76,14 @@
 	</div>
 
 	<div class="span2"></div>
+
+	<div class="row container">
+		<div class="span24">
+		@foreach($contributors as $contributor)
+		{{$contributor}}
+		@endforeach
+		</div>
+	</div>
 @stop
 @section('afterbody')
 	<div class="progreso">
