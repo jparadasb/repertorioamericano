@@ -122,6 +122,9 @@ nav li .btn{
 	animation: moves 5s linear 0 infinite;
 
 }
+.inactivo{
+	-webkit-filter: opacity(0.4);
+}
 .error{
 	float:none;
 }

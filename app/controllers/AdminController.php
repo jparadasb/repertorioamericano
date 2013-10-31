@@ -154,7 +154,7 @@ class AdminController extends BaseController {
         $magazine=Magazine::find($id);
         $actives=$magazine->contributors()->get();
         $contributors=Contributor::all();
-        $attributes 	=	array('class'=>'activo');
+        $attributes 	=	array('class'=>'inactivo');
 
         foreach($actives as $active)
         {
@@ -162,22 +162,34 @@ class AdminController extends BaseController {
         }
         foreach($contributors as $contributor)
         {
+        	$jquery[]	=	'<script> $(document).ready(function() {';
         	if(in_array($contributor->id,$ids))
         	{
         		$salida[] 		=	
-        		Form::open(array('action' => 'ContributorsController@descol'), 'POST').
-        		Form::hidden('id', $contributor->id).
-        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name, $attributes).
+        		Form::open(array('url' => URL::to('contributors/'.$contributor->id.'/edit'), 'method' => 'get', 'id'=>'submit'.$contributor->id)).
+        		Form::hidden('contributor_id', $contributor->id).
+        		Form::hidden('magazine_id', $magazine->id).
+        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name,'', array('id'=>'img'.$contributor_id)).
+        		//Form::submit('Desactive').
         		Form::token().
         		Form::close();
+        		$jquery[]	=	"$('img'".$contributor_id.").click(function() {$('submit".$contributor_id."').submit();});";
         	}
         	else
         	{
-        		$salida[] 		=	HTML::image('/'.$contributor->dir_photo, $contributor->real_name);
+        		        		$salida[] 		=	
+        		Form::open(array('url' => URL::to('contributors/'.$contributor->id.'/edit'), 'method' => 'get', 'id'=>'submit'.$contributor->id)).
+        		Form::hidden('contributor_id', $contributor->id).
+        		Form::hidden('magazine_id', $magazine->id).
+        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name, $attributes, array('id'=>'img'.$contributor_id)).
+        		//Form::submit('Active').
+        		Form::token().
+        		Form::close();
+        		$jquery[]	=	"$('img'".$contributor_id.").click(function() {$('submit".$contributor_id."').submit();});";
         	}
         }
-
-        return View::make('admin.edit', array('magazine'=>$magazine, 'id'=>$id, 'contributors'=>$salida));
+        $jquery[]	=	'}); </script>';
+        return View::make('admin.edit', array('magazine'=>$magazine, 'id'=>$id, 'contributors'=>$salida, 'jquery'=>$jquery));
 	}
 
 	/**

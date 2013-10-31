@@ -96,6 +96,9 @@
 	</div>
 @stop
 @section('jquery')
+@foreach($jquery as $j)
+{{$j}}
+@endforeach
 <script type='text/javascript'>
 
 				$.validate({

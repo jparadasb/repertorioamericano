@@ -58,7 +58,46 @@ class ContributorsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('contributors.edit');
+			$reglas=
+				array(
+
+					'contributor_id'=>'required',
+					'magazine_id'=>'required',
+				);
+					$validador = Validator::make( Input::all(), $reglas );
+
+		if( ! $validador->fails() ){
+
+			$contributor_id 	=	Input::get( 'contributor_id' );
+			$contributor 		=	Contributor::find($contributor_id);
+			$magazine 		=	Input::get('magazine_id');
+			$contributors 	=	Magazine::find($magazine)->contributors()->get();
+			foreach ($contributors as $c)
+			{
+				$id_c[$c->id]		=	$c->id;	
+			}
+			if(in_array($contributor_id, $id_c))
+			{
+				var_dump($id_c);
+				unset($id_c[$contributor_id]);
+				Magazine::find($magazine)->contributors()->sync($id_c);
+			}
+			else
+			{
+				$id_c[$contributor_id]		=	$contributor_id;
+				Magazine::find($magazine)->contributors()->sync($id_c);
+			}
+
+			return Redirect::to('admin/'.$magazine.'/edit');
+		}
+		else
+		{
+			//Redireccionar hacia el home, incluyendo mensajes de error del validador
+			
+
+			//return Redirect::route( 'admin.create' )->withErrors( $validador )->withInput();
+	
+		}
 	}
 
 	/**
@@ -69,7 +108,7 @@ class ContributorsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+
 	}
 
 	/**
@@ -81,10 +120,6 @@ class ContributorsController extends BaseController {
 	public function destroy($id)
 	{
 		//
-	}
-	public function descol()
-	{
-
 	}
 
 }
