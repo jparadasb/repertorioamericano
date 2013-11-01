@@ -46,7 +46,7 @@ class OtrasController extends BaseController {
 		$validador = Validator::make( Input::all(), $reglas );
 		if( ! $validador->fails() ){
 
-			$img_portada_name=str_random(4).'.png';
+			$img_portada_name=str_random(4).'o.png';
 			$destino_img='resources/photo/';
 			$img=$destino_img.$img_portada_name;
 			Image::make(Input::file('file_image')->getRealPath())->resize(154, 236)->save($img,100);

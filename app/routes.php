@@ -18,6 +18,7 @@ Route::group(array('before' => 'auth'), function()
    Route::resource('admin', 'AdminController');
    Route::get('/admin/delete/{id}', 'AdminController@destroy');
    Route::get('/otras/delete/{id}', 'OtrasController@destroy');
+   Route::post('/colaborador/{id}', array('uses'=>'ContributorsController@addRemove','as'=>'add.remove'));
 });
 
 Route::resource('otras', 'OtrasController');

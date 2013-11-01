@@ -107,8 +107,17 @@ class MagazinesController extends \BaseController {
 	{
 		$magazines = Magazine::find($id);
 		$colaboradores=Magazine::find($id)->contributors;
+		$num=0;
+		foreach ($colaboradores as $c)
+		{
+			$num++;
+		}
+		$width=2292/$num;
+
 		if($magazines)
-		{return View::make('magazines.colaboradores')-> with('magazines',$magazines)-> with('colaboradores',$colaboradores);}
+		{
+			return View::make('magazines.colaboradores', array('magazines'=>$magazines, 'colaboradores'=>$colaboradores, 'width'=>$width));
+		}
 		else
 		{return 'Id no existe';};
 	}

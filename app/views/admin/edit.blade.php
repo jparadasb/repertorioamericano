@@ -19,7 +19,7 @@
 				<label for="num_edi" class="error">{{$error}}</label>
 				@endforeach
 			@endif
-				{{Form::label('num_edi', 'Número de Edición', array('class' => 'labels'))}}
+				{{Form::label('num_edi', 'Número de Edición', array('class' => 'label label-clear'))}}
 				{{Form::custom('number','num_edi', $magazine->num_edi, array('min'=>'1', 'class'=>'input-mini','required'=>'required','data-validation'=>'number','data-validation-error-msg'=>'En el número de la edición solo se aceptan números'))}}
 			
 			@if( $errors->has( 'txt_tema' ) )
@@ -70,20 +70,20 @@
 
 		{{Form::token()}}
 		</fieldset>
-		{{Form::submit( 'Actualizar' , array('class'=>'btn'))}}	
+		{{Form::submit( ' Guardar' , array('class'=>'btn bsave'))}}	
 		{{ Form::close() }}
-		
+		{{Form::label('', 'Colaboradores', array('class'=>'label label-clear'))}}
+		<div class="colaboradores">
+		@foreach($contributors as $contributor)
+		<div class="form-c">
+		{{$contributor}}
+		</div>
+		@endforeach
+		</div>
 	</div>
 
 	<div class="span2"></div>
 
-	<div class="row container">
-		<div class="span24">
-		@foreach($contributors as $contributor)
-		{{$contributor}}
-		@endforeach
-		</div>
-	</div>
 @stop
 @section('afterbody')
 	<div class="progreso">

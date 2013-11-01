@@ -49,6 +49,7 @@ nav1
 @section('head')
 {{HTML::style('css/colaboradores.css')}}
 {{HTML::script('js/jquery-2.0.3.js')}}
+
 @stop
 @section('contenido')
 

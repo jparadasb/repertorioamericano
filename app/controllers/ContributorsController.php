@@ -58,6 +58,10 @@ class ContributorsController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		return View::make('contributors.edit');
+	}
+	public function addRemove($id)
+	{
 			$reglas=
 				array(
 
@@ -72,6 +76,7 @@ class ContributorsController extends BaseController {
 			$contributor 		=	Contributor::find($contributor_id);
 			$magazine 		=	Input::get('magazine_id');
 			$contributors 	=	Magazine::find($magazine)->contributors()->get();
+			$id_c = array();
 			foreach ($contributors as $c)
 			{
 				$id_c[$c->id]		=	$c->id;	
@@ -88,7 +93,7 @@ class ContributorsController extends BaseController {
 				Magazine::find($magazine)->contributors()->sync($id_c);
 			}
 
-			return Redirect::to('admin/'.$magazine.'/edit');
+			return Redirect::to('admin/'.$magazine.'/edit/#img'.$contributor_id);
 		}
 		else
 		{
@@ -97,9 +102,8 @@ class ContributorsController extends BaseController {
 
 			//return Redirect::route( 'admin.create' )->withErrors( $validador )->withInput();
 	
-		}
+		}		
 	}
-
 	/**
 	 * Update the specified resource in storage.
 	 *

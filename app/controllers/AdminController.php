@@ -86,7 +86,7 @@ class AdminController extends BaseController {
 		if( ! $validador->fails() ){
 
 
-			$img_portada_name=str_random(4).'.png';
+			$img_portada_name=str_random(4).'r.png';
 			$destino_img='resources/photo/';
 			$img=$destino_img.$img_portada_name;
 			Image::make(Input::file('file_image')->getRealPath())->resize(154, 236)->save($img,100);
@@ -154,41 +154,73 @@ class AdminController extends BaseController {
         $magazine=Magazine::find($id);
         $actives=$magazine->contributors()->get();
         $contributors=Contributor::all();
-        $attributes 	=	array('class'=>'inactivo');
-
+        $jquery[]	=	'<script> $(document).ready(function() {';
+        $ids = Array();
         foreach($actives as $active)
         {
         	$ids[]=$active->id;
         }
         foreach($contributors as $contributor)
         {
-        	$jquery[]	=	'<script> $(document).ready(function() {';
+        	
         	if(in_array($contributor->id,$ids))
         	{
         		$salida[] 		=	
-        		Form::open(array('url' => URL::to('contributors/'.$contributor->id.'/edit'), 'method' => 'get', 'id'=>'submit'.$contributor->id)).
+        		Form::open(array('url' => URL::to('colaborador/'.$contributor->id), 'method' => 'POST', 'id'=>'submit'.$contributor->id)).
         		Form::hidden('contributor_id', $contributor->id).
         		Form::hidden('magazine_id', $magazine->id).
-        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name,'', array('id'=>'img'.$contributor_id)).
-        		//Form::submit('Desactive').
-        		Form::token().
-        		Form::close();
-        		$jquery[]	=	"$('img'".$contributor_id.").click(function() {$('submit".$contributor_id."').submit();});";
+        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name, array('id'=>'img'.$contributor->id)).
+				Form::token().
+				'<div class ="name-out" id="name'.$contributor->id.'">'.$contributor->real_name.'</div>'.
+				Form::close();
+        		$jquery[]    =	"$('#img".$contributor->id."').click(function() { $('#submit".$contributor->id."').submit();});".
+															"
+															$('#img".$contributor->id."').mouseover(
+																function() { 
+																				$('#name".$contributor->id."').removeClass(\"name-out\");
+																				$('#name".$contributor->id."').addClass(\"name-in\");
+																			}
+															);".
+															"
+															$('#img".$contributor->id."').mouseout(
+																function() { 
+																				$('#name".$contributor->id."').removeClass(\"name-in\");
+																				$('#name".$contributor->id."').addClass(\"name-out\");
+															}
+															);";
         	}
         	else
         	{
         		        		$salida[] 		=	
-        		Form::open(array('url' => URL::to('contributors/'.$contributor->id.'/edit'), 'method' => 'get', 'id'=>'submit'.$contributor->id)).
+        		Form::open(array('url' => URL::to('colaborador/'.$contributor->id), 'method' => 'POST', 'id'=>'submit'.$contributor->id)).
         		Form::hidden('contributor_id', $contributor->id).
         		Form::hidden('magazine_id', $magazine->id).
-        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name, $attributes, array('id'=>'img'.$contributor_id)).
+        		HTML::image('/'.$contributor->dir_photo, $contributor->real_name, array('class'=>'inactivo','id'=>'img'.$contributor->id)).
         		//Form::submit('Active').
-        		Form::token().
-        		Form::close();
-        		$jquery[]	=	"$('img'".$contributor_id.").click(function() {$('submit".$contributor_id."').submit();});";
+				Form::token().
+				'<div class ="name-out" id="name'.$contributor->id.'">'.$contributor->real_name.'</div>'.
+				Form::close();
+        		
+
+
+        		$jquery[]    =	"$('#img".$contributor->id."').click(function() { $('#submit".$contributor->id."').submit();});".
+															"
+															$('#name".$contributor->id."').mouseover(
+																function() { 
+																				$('#name".$contributor->id."').removeClass('name-out');
+																				$('#name".$contributor->id."').addClass('name-in');
+																			}
+															);".
+															"
+															$('#name".$contributor->id."').mouseout(
+																function() { 
+																				$('#name".$contributor->id."').removeClass('name-in');
+																				$('#name".$contributor->id."').addClass('name-out');
+															}
+															);";
         	}
         }
-        $jquery[]	=	'}); </script>';
+        $jquery[]    =	'}); </script>';
         return View::make('admin.edit', array('magazine'=>$magazine, 'id'=>$id, 'contributors'=>$salida, 'jquery'=>$jquery));
 	}
 
