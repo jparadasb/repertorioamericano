@@ -5,6 +5,8 @@
 @stop
 @section('authbar')
 <a href="{{URL::to('/contributors')}}" class="span3 btn">Volver</a>
+<!-- HTML::linkAction('Admin\CategoriesController@destroy', 'Delete', $c->id) -->
+<a href="{{URL::to('/contributors/delete/'.$contributor->id)}}" class="span3 btn">Borrar</a>
 @stop
 @section('contenido')
 	<div class="span16">

@@ -224,7 +224,16 @@ class ContributorsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$contributor 	=	Contributor::find($id);
+		if(file_exists($contributor->dir_photo))
+		{
+			unlink($contributor->dir_photo);
+		}
+		DB::table('contributor_magazine')
+			->where('contributor_id', '=', $id)
+			->delete();
+		$contributor->delete();
+		return Redirect::to('contributors');
 	}
 
 }

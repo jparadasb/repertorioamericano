@@ -328,7 +328,6 @@ class AdminController extends BaseController {
 	public function destroy($id)
 	{	
 		
-		//Magazine::find($id)->contributors->forceDelete();
 		$magazine=Magazine::find($id);
 		if(file_exists($magazine->dir_pdf))
 		{
