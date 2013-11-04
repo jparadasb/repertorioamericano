@@ -36,7 +36,47 @@ class ContributorsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$reglas=
+		array(
+			'name'	=>	'required',
+			'bio'	=>	'required|max:1740',
+			'photo'	=>	'required|mimes:jpeg,png'
+		);
+		$validador = Validator::make( Input::all(), $reglas );
+		if( ! $validador->fails())
+		{
+
+			$photo_name 	=	str_random(4).'pic.png';
+			$destino 		=	'resources/colaboradores/';
+			$img 			=	$destino.$photo_name;
+			Image::make(Input::file('photo')->getRealPath())->resize(189, 127)->save($img,100);
+
+			$contributor 				=	new Contributor();
+			$contributor->real_name		=	e(Input::get('name'));
+			$contributor->txt_col		=	e(Input::get('bio'));
+			$contributor->dir_photo		=	$img;
+			try
+			{
+				$contributor->save();
+
+			}
+			catch(Exception $e)
+			{
+				if(file_exists($img))
+				{
+					unlink($img);
+				}
+				return Redirect::route('contributors.create')->with( 'message', 'Se produjo un error, por favor intenta de nuevo.' )->withInput();
+			}
+			return Redirect::to('contributors');
+
+		}
+		else
+		{
+			//Redireccionar hacia el home, incluyendo mensajes de error del validador
+			return Redirect::route( 'contributors.create' )->withErrors( $validador )->withInput();
+	
+		}
 	}
 
 	/**
@@ -58,7 +98,8 @@ class ContributorsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('contributors.edit');
+		$contributor 	=	Contributor::find($id);
+		return View::make('contributors.edit')->with('contributor',$contributor);
 	}
 	public function addRemove($id)
 	{
@@ -112,7 +153,67 @@ class ContributorsController extends BaseController {
 	 */
 	public function update($id)
 	{
+		$reglas=
+		array(
+			'name'	=>	'required',
+			'bio'	=>	'required|max:1740',
+			'photo'	=>	'mimes:jpeg,png'
+		);
+		$validador = Validator::make( Input::all(), $reglas );
+		if( ! $validador->fails())
+		{
 
+
+			$contributor 				=	Contributor::find($id);
+			$contributor->real_name		=	e(Input::get('name'));
+			$contributor->txt_col		=	e(Input::get('bio'));
+
+			if(Input::hasFile('photo')!==false)
+			{
+				$photo_name 	=	str_random(4).'pic.png';
+				$destino 		=	'resources/colaboradores/';
+				$img 			=	$destino.$photo_name;
+				$contributor->dir_photo		=	$img;
+				if(file_exists($contributor->dir_photo))
+				{
+					unlink($contributor->dir_photo);
+				}
+
+				if(Image::make(Input::file('photo')->getRealPath())->resize(189, 127)->save($img,100))
+				{
+					$contributor->dir_photo	=		$img;
+				}
+				else
+				{
+					return Redirect::to('contributors/'.$id.'/edit')->with( 'message', 'Se produjo un error al tratar de subir la imagen.' )->withInput();
+				}
+			}
+			else
+			{
+
+			}
+			try
+			{
+				$contributor->save();
+			}
+			catch(Exception $e)
+			{
+				if(file_exists($img))
+				{
+					unlink($img);
+				}
+				return Redirect::to('contributors/'.$id.'/edit')->with( 'message', 'Se produjo un error, por favor intenta de nuevo.' )->withInput();
+			}
+			return Redirect::to('contributors/'.$id.'/edit');
+
+		}
+		else
+		{
+			//Redireccionar hacia el home, incluyendo mensajes de error del validador
+			return Redirect::to('contributors/'.$id.'/edit')->withErrors( $validador )->withInput();
+	
+		}
+		
 	}
 
 	/**

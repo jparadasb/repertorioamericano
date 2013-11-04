@@ -205,14 +205,14 @@ class AdminController extends BaseController {
 
         		$jquery[]    =	"$('#img".$contributor->id."').click(function() { $('#submit".$contributor->id."').submit();});".
 															"
-															$('#name".$contributor->id."').mouseover(
+															$('#img".$contributor->id."').mouseover(
 																function() { 
 																				$('#name".$contributor->id."').removeClass('name-out');
 																				$('#name".$contributor->id."').addClass('name-in');
 																			}
 															);".
 															"
-															$('#name".$contributor->id."').mouseout(
+															$('#img".$contributor->id."').mouseout(
 																function() { 
 																				$('#name".$contributor->id."').removeClass('name-in');
 																				$('#name".$contributor->id."').addClass('name-out');
