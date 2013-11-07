@@ -15,7 +15,8 @@ class SectionsController extends BaseController {
 	
 	public function index()
 	{
-        return View::make('sections.index');
+		$magazines	=	Magazine::all();
+        return View::make('sections.index')->with('magazines',$magazines);
 	}
 
 	/**
@@ -35,7 +36,16 @@ class SectionsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules	=	
+		array(
+			'file_pdf'	=>	'required|mimes:pdf',
+			'id'		=>	'required'
+			);
+		$validator	=	Validator::make(Input::all(),$rules);
+		if(!$validator->fails())
+		{
+			echo Input::get('id');
+		}
 	}
 
 	/**
@@ -57,7 +67,13 @@ class SectionsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('sections.edit');
+		$sections_in 	=	Magazine::find($id)->sections()->get();
+		$sections		=	Section::all();
+		foreach($sections as $section)
+		{
+			$s_ids[]		=	$section->id;
+		}
+        return View::make('sections.edit', array('sections' => $sections, 's_ids' =>	$s_ids, 'sections_in' => $sections_in));
 	}
 
 	/**
@@ -66,6 +82,7 @@ class SectionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function update($id)
 	{
 		//
