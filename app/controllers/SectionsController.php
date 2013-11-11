@@ -44,7 +44,10 @@ class SectionsController extends BaseController {
 		$validator	=	Validator::make(Input::all(),$rules);
 		if(!$validator->fails())
 		{
-			echo Input::get('id');
+			$destino_pdf='resources/secciones/'.Input::get('id');
+			$pdf_name=date('ds').str_random(3).'sec.pdf';
+			$pdf=Input::file('file_pdf')->move($destino_pdf,$pdf_name);
+			
 		}
 	}
 
@@ -73,7 +76,7 @@ class SectionsController extends BaseController {
 		{
 			$s_ids[]		=	$section->id;
 		}
-        return View::make('sections.edit', array('sections' => $sections, 's_ids' =>	$s_ids, 'sections_in' => $sections_in));
+        return View::make('sections.edit', array('sections' => $sections, 's_ids' =>	$s_ids, 'sections_in' => $sections_in, 'id'=>$id));
 	}
 
 	/**

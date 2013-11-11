@@ -17,7 +17,8 @@
 				@endif
 			@endforeach
 
-			{{Form::hidden('id', $section->id);}}
+			{{Form::hidden('s_id', $section->id);}}
+			{{Form::hidden('id', $id);}}
 			{{Form::submit( '' , array('class'=>'btn bsave'))}}	
 			{{Form::token()}}
 			{{Form::close()}}
