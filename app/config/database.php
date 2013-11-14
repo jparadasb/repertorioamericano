@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'repertorioamericano',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'jparadasb',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_spanish2_ci',
 			'prefix'    => '',

@@ -72,7 +72,7 @@ class SectionsController extends BaseController {
 	{
 		$sections_in 	=	Magazine::find($id)->sections()->get();
 		$sections		=	Section::all();
-		foreach($sections as $section)
+		foreach($sections_in as $section)
 		{
 			$s_ids[]		=	$section->id;
 		}
