@@ -5,12 +5,6 @@
 @section('contenido')
 <div class="span16 create">
 	@foreach($sections_in as $section)
-		@if(in_array($section->id,$s_ids))
-		{{Form::open(array(URL::route('sections.destroy',$section->id)))}}
-		{{Form::submit( 'Eliminar' , array('class'=>'btn bsave'))}}
-		{{Form::token()}}
-		{{Form::close()}}
-		@endif
 			{{Form::open(array('route'=>'sections.store','method' =>'POST', 'file'=>'true', 'name'=>$section->id))}}
 
 			{{Form::label('file', $section->real_name, array('class'=>'label label-clear'))}}
