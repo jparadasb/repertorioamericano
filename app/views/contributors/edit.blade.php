@@ -5,7 +5,8 @@
 @stop
 @section('authbar')
 <a href="{{URL::to('/contributors')}}" class="span3 btn">Volver</a>
-{{ Form::open(['method' => 'DELETE', 'action' => ['ContributorsController@destroy', $contributor->id]]) }}
+{{Form::open(array('route' => array('contributors.destroy', $contributor->id)  ) ) }}
+{{Form::hidden('_method','DELETE')}}
 {{Form::submit( 'Borrar' , array('class'=>'span3 btn'))}}
 {{ Form::close() }}
 @stop
