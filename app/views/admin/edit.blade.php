@@ -20,7 +20,7 @@
 				@endforeach
 			@endif
 				{{Form::label('num_edi', 'Número de Edición', array('class' => 'label label-clear'))}}
-				{{Form::custom('number','num_edi', $magazine->num_edi, array('min'=>'1', 'class'=>'input-mini','required'=>'required','data-validation'=>'number','data-validation-error-msg'=>'En el número de la edición solo se aceptan números'))}}
+				{{Form::custom('number','num_edi', $magazine->num_edi, array('min'=>'0', 'class'=>'input-mini','required'=>'required','data-validation'=>'number','data-validation-error-msg'=>'En el número de la edición solo se aceptan números'))}}
 			
 			@if( $errors->has( 'txt_tema' ) )
 				@foreach( $errors->get( 'txt_tema' ) as $error )

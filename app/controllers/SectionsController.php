@@ -39,7 +39,8 @@ class SectionsController extends BaseController {
 		$rules	=	
 		array(
 			'file_pdf'	=>	'required|mimes:pdf',
-			'id'		=>	'required'
+			'id'		=>	'required',
+			's_id'		=>	'required'
 			);
 		$validator	=	Validator::make(Input::all(),$rules);
 		if(!$validator->fails())
@@ -47,7 +48,11 @@ class SectionsController extends BaseController {
 			$destino_pdf='resources/secciones/'.Input::get('id');
 			$pdf_name=date('ds').str_random(3).'sec.pdf';
 			$pdf=Input::file('file_pdf')->move($destino_pdf,$pdf_name);
-			
+			if($pdf)
+			{
+				$magazine = Magazine::find(Input::get('id'))->sections()->attach(Input::get('s_id'), array('dir_pdf' => $pdf));
+			}
+			Return Redirect::to('sections/'.Input::get('id').'/edit');
 		}
 	}
 
@@ -72,6 +77,7 @@ class SectionsController extends BaseController {
 	{
 		$sections_in 	=	Magazine::find($id)->sections()->get();
 		$sections		=	Section::all();
+		$s_ids 			=	Array();
 		foreach($sections_in as $section)
 		{
 			$s_ids[]		=	$section->id;
@@ -99,7 +105,29 @@ class SectionsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$m_id 		= 	Input::get('magazine_id');
+		 $s_m 		=	Magazine::find($m_id)->sections();
+		 $section 	= 	$s_m->get();
+		foreach($section as $s)
+		{
+			if($s->id === $id)
+			{
+				if(file_exists($s->pivot->dir_pdf))
+				{
+					unlink($s->pivot->dir_pdf);
+				}
+
+			}	
+		}
+		try
+		{
+			$s_m->detach($id);
+		}
+		catch(Exception $e)
+		{
+			Return Redirect::to('sections/'.$m_id.'/edit')->with('message','Error al borrar seccion');
+		}
+		Return Redirect::to('sections/'.$m_id.'/edit');
 	}
 
 }

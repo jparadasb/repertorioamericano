@@ -9,7 +9,7 @@ class Magazine extends Eloquent
 	
 	public function sections()
 	{
-		return $this->belongsToMany('Section')->withPivot('dir_pdf','click_num','section_id');
+		return $this->belongsToMany('Section')->withPivot('dir_pdf','click_num','section_id','magazine_id');
 	}
 
 	public function load_sections()

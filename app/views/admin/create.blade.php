@@ -22,7 +22,7 @@
 				@endforeach
 			@endif
 			{{Form::label('num_edi', 'Número de Edición', array('class' => 'label label-clear'))}}
-			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'1', 'class'=>'input-mini','required'=>'required','data-validation'=>'number'))}}
+			{{Form::custom('number','num_edi', Input::old('num_edi'), array('min'=>'0', 'class'=>'input-mini','required'=>'required','data-validation'=>'number'))}}
 			
 			@if( $errors->has( 'txt_tema' ) )
 				@foreach( $errors->get( 'txt_tema' ) as $error )

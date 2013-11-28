@@ -337,6 +337,20 @@ class AdminController extends BaseController {
 		{
 			unlink($magazine->dir_portada);
 		}
+		$sections = $magazine->sections()->get();
+		foreach( $sections as $section)
+		{
+			if(file_exists($section->pivot->dir_pdf))
+			{
+				unlink($section->pivot->dir_pdf);
+			}
+		}
+		echo 'resource/secciones/'.$id.'/';
+		if(is_dir('resources/secciones/'.$id.'/'))
+		{
+			 rmdir('resources/secciones/'.$id);
+		}
+		
 
 		DB::table('magazine_section')
 			->where('magazine_id', '=', $id)
@@ -344,6 +358,7 @@ class AdminController extends BaseController {
 		DB::table('contributor_magazine')
 			->where('magazine_id', '=', $id)
 			->delete();
+
 		Magazine::find($id)->delete();
 		return Redirect::to('admin');
 	}
