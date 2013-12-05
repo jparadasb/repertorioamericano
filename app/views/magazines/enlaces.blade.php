@@ -67,8 +67,13 @@ nav2
 
 	@endforeach
 	</div>
-	<div class="span5" id="right"></div>
+	<div class="span5" id="right">
 	</div>
+	</div>
+	<aside>
+			<a href="http://humanidadenred.org.ve">{{HTML::image('resources/rdiadhpng.png')}}</a>
+			<a href="http://fba.org.ve">{{HTML::image('resources/ayacucho.png')}}</a>
+	</aside>
 	{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 @stop
 <!--Fin-->
