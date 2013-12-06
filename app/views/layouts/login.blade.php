@@ -53,6 +53,9 @@
 							<li>
 								<a href="{{URL::to('otras')}}" class="btn">OTRAS PUBLICACIONES</a>
 							</li>
+							<li>
+								<a href="{{URL::to('video')}}" class="btn">Video</a>
+							</li>
 	<!-- 						<li id=@yield('ide')>
 								<a href=@yield('enlaceslink')>ENLACES</a>
 							</li> -->
