@@ -51,7 +51,7 @@
 								<a href="{{URL::to('contributors')}}" class="btn">COLABORADORES</a>
 							</li>
 							<li>
-								<a href="{{URL::to('otras')}}" class="btn">OTRAS PUBLICACIONES</a>
+								<a href="{{URL::to('otras')}}" class="btn">OTRAS PUB</a>
 							</li>
 							<li>
 								<a href="{{URL::to('video')}}" class="btn">Video</a>
