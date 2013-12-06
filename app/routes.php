@@ -25,7 +25,8 @@ Route::resource('otras', 'OtrasController');
 Route::resource('sections', 'SectionsController');
 Route::resource('contributors', 'ContributorsController');
 Route::resource('users','UsersController');
-
+#Edicion del video del home
+Route::get('video', array('uses' => 'AdminController@video', 'as' => 'admin.video', 'before' => 'auth'))
 
 
 Route::get(  '/logout', array( 'uses' => 'AdminController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
@@ -50,6 +51,5 @@ Route::get('/revista/{id}', 'MagazinesController@Revista');
 Route::get('/otras-publicaciones/{id}', 'MagazinesController@OtrasPublicaciones');
 #Enlaces asociados
 Route::get('/enlaces/{id}', 'MagazinesController@Enlaces');
-
 
 
