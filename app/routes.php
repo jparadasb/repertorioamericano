@@ -26,7 +26,7 @@ Route::resource('sections', 'SectionsController');
 Route::resource('contributors', 'ContributorsController');
 Route::resource('users','UsersController');
 #Edicion del video del home
-Route::get('video', array('uses' => 'AdminController@video', 'as' => 'video', 'before' => 'auth'));
+Route::get('/video', array('uses' => 'AdminController@video', 'as' => 'video', 'before' => 'auth'));
 
 
 Route::get(  '/logout', array( 'uses' => 'AdminController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
