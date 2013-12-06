@@ -27,7 +27,7 @@ Route::resource('contributors', 'ContributorsController');
 Route::resource('users','UsersController');
 #Edicion del video del home
 Route::get('/video', array('uses' => 'AdminController@video', 'as' => 'video', 'before' => 'auth'));
-
+Route::post('/video', array('uses' => 'AdminController@editvideo', 'as' => 'admin.video', 'before' => 'auth|csrf'));
 
 Route::get(  '/logout', array( 'uses' => 'AdminController@logout', 'as' => 'operations.logout', 'before' => 'auth' ) );
 Route::post('/login', array('uses'=>'AdminController@login', 'as' => 'oparations.login','before'=>'csrf'));
