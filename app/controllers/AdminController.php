@@ -1,7 +1,41 @@
 <?php
 
 class AdminController extends BaseController {
+	public function editvideo()
+	{
+		$rules = array(
+				'titulo'	=>	'required',
+				'url' 		=>	'required|url'
+			);
+		$validador = Validator::make( Input::all(), $rules );
+		if(!$validador->fails())
+		{
+			$video = Video::first();
+			$video->url 	=	Input::get('url');
+			$video->titulo 	=	e(Input::get('titulo'));
+			try
+			{
+				$video->save();
 
+			}
+			catch(Exception $e)
+			{
+				Session::flash('message','Se generó un error al guardar, intenta de nuevo');
+				Return Redirect::to('video');
+			}
+			Session::flash('message','Se guardó el video con éxito');
+			Return Redirect::to('video');
+		}
+		else
+		{
+			echo 'error';
+		}
+	}
+	public function video()
+	{
+		$video_db 	=	Video::first();
+		return View::make('admin.video')->with('video',$video_db);
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
