@@ -11,6 +11,10 @@ class AdminController extends BaseController {
 		if(!$validador->fails())
 		{
 			$video = Video::first();
+			if($video===NULL)
+			{
+				$video = new Video;
+			}
 			$video->url 	=	Input::get('url');
 			$video->titulo 	=	e(Input::get('titulo'));
 			try
