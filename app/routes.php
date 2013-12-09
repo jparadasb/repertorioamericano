@@ -51,5 +51,6 @@ Route::get('/revista/{id}', 'MagazinesController@Revista');
 Route::get('/otras-publicaciones/{id}', 'MagazinesController@OtrasPublicaciones');
 #Enlaces asociados
 Route::get('/enlaces/{id}', 'MagazinesController@Enlaces');
+Route::get('/creditos/{id}', 'MagazinesController@Creditos');
 
 
