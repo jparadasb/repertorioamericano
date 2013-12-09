@@ -23,6 +23,9 @@
 @section('enlaceslink')
 /enlaces/{{$magazines->id}}
 @stop
+@section('creditoslink')
+/creditos/{{$magazines->id}}
+@stop
 <!-- fin-->
 <!--Configuracion del id de li-->
 @section('idi')
@@ -41,6 +44,9 @@ nav1
 nav1
 @stop
 @section('ide')
+nav1
+@stop
+@section('idcr')
 nav1
 @stop
 <!--Fin-->

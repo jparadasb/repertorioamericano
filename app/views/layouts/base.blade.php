@@ -46,8 +46,8 @@ Date();a=s.createElement(o),
 			<div class="span24" id="trans"></div>
 		</div>
 		<div class="row">
-			<div class="span1"></div>
-			<div class="span23">
+			
+			<div class="span24">
 				<nav class="container">
 					<UL class="menu">
 						<li id=@yield('idi')>
@@ -67,6 +67,9 @@ Date();a=s.createElement(o),
 						</li>
 						<li id=@yield('ide')>
 							<a href=@yield('enlaceslink')>ENLACES</a>
+						</li>
+						<li id=@yield('idcr')>
+							<a href=@yield('creditoslink')>CREDITOS</a>
 						</li>
 					</UL>
 

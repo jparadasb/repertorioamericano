@@ -99,7 +99,19 @@ class MagazinesController extends \BaseController {
 		}
 		else
 		{
-			return 'Id no existe';//Esto deberia devolver un error 404
+			App::abort(404);//Esto deberia devolver un error 404
+		}
+	}
+	public function creditos($id)
+	{
+		$magazines 	=	Magazine::find($id);
+		if($magazines)
+		{
+			return View::make('magazines.creditos')->with('magazines', $magazines);
+		}
+		else
+		{
+			App::abort(404);
 		}
 	}
 

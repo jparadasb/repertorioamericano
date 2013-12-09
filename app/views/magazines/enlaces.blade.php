@@ -25,6 +25,10 @@
 @section('enlaceslink')
 /enlaces/{{$magazines->id}}
 @stop
+
+@section('creditoslink')
+/creditos/{{$magazines->id}}
+@stop
 <!-- fin-->
 <!--Configuracion del id de li-->
 @section('idi')
@@ -44,6 +48,9 @@ nav1
 @stop
 @section('ide')
 nav2
+@stop
+@section('idcr')
+nav1
 @stop
 @section('head')
 {{HTML::style('css/enlaces.css')}}
