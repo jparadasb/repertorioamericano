@@ -77,10 +77,10 @@ nav1
 	<div class="span5" id="right">
 	</div>
 	</div>
-	<aside>
+<!-- 	<aside>
 			<a href="http://humanidadenred.org.ve">{{HTML::image('resources/rdiadhpng.png')}}</a>
 			<a href="http://fba.org.ve">{{HTML::image('resources/ayacucho.png')}}</a>
-	</aside>
+	</aside> -->
 	{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 @stop
 <!--Fin-->

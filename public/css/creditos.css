@@ -1,0 +1,34 @@
+/*creditos.css*/
+#contenido{
+	background:url(../resources/backgroud-enlaces.png) 0px -42px;
+}
+.white{
+background 	: rgba(255,255,255,0.7);
+text-align 	: center;
+padding 		: 10px;
+font-family 	: nova;  
+}
+.blue{
+color 			: #fff;
+padding 		: 10px;
+font-family 	: nova; 
+background 		: rgba(2,23,50,0.8);
+text-align 		: justify;
+}
+.title{
+	font-size 	: 12px; 
+}
+.bold{
+	font-family:helvetica;
+	font-weight: bold;
+	font-size: 12px;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.clear{
+	clear:both;
+}
