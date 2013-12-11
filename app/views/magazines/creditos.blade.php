@@ -106,11 +106,6 @@ nav2
 	o parcial de alguno de los contenidos de esta revista, deberá citar
 	la fuente.</li>
 	</ul>
-	
-	
-	
-	
-
-
 	</div>
+	{{HTML::image('resources/transparencia1000x50.png','',array('width'=>'1100', 'height'=>'50'))}}
 @stop
