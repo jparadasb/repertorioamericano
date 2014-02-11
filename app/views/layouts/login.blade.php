@@ -19,8 +19,8 @@
 	<header class="container">
 		<div class="row">
 			<div class="span24">
-				<div class="gobleft">{{HTML::image(asset('resources/bannergob_left.png'))}}</div>
-				<div class="gobrigth">{{HTML::image(asset('resources/logo.png'))}}</div>
+				<div class="gobleft">{{HTML::image(asset('resources/logo_left.png'))}}</div>
+				<div class="gobrigth">{{HTML::image(asset('resources/logo_right.png'))}}</div>
 		</div>
 		</div>
 		<div class="row">
